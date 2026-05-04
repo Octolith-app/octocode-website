@@ -1,15 +1,19 @@
 <!DOCTYPE html>
 <html lang="fr" data-lang="fr">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Octocode — Studio de développement logiciel</title>
-  <meta name="description" content="Octocode SARL — Studio indépendant de développement de logiciels, sites web et applications mobiles. Bouvron, France.">
+  <meta name="description"
+    content="Octocode SARL — Studio indépendant de développement de logiciels, sites web et applications mobiles. Bouvron, France.">
   <meta name="theme-color" content="#0a0a0a">
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,500;12..96,600;12..96,700&family=JetBrains+Mono:wght@400;500;600;700&family=Manrope:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,500;12..96,600;12..96,700&family=JetBrains+Mono:wght@400;500;600;700&family=Manrope:wght@300;400;500;600&display=swap"
+    rel="stylesheet">
 
   <style>
     :root {
@@ -29,8 +33,15 @@
       --mono: 'JetBrains Mono', ui-monospace, monospace;
     }
 
-    * { box-sizing: border-box; margin: 0; padding: 0; }
-    html { scroll-behavior: smooth; }
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
 
     body {
       font-family: var(--body);
@@ -44,7 +55,8 @@
 
     body::before {
       content: '';
-      position: fixed; inset: 0;
+      position: fixed;
+      inset: 0;
       background-image:
         radial-gradient(circle at 15% 25%, rgba(251, 191, 36, 0.05) 0%, transparent 35%),
         radial-gradient(circle at 85% 75%, rgba(251, 191, 36, 0.03) 0%, transparent 45%);
@@ -53,7 +65,8 @@
     }
 
     .grid-overlay {
-      position: fixed; inset: 0;
+      position: fixed;
+      inset: 0;
       background-image:
         linear-gradient(to right, rgba(255, 255, 255, 0.018) 1px, transparent 1px),
         linear-gradient(to bottom, rgba(255, 255, 255, 0.018) 1px, transparent 1px);
@@ -74,7 +87,9 @@
     /* HEADER */
     header {
       position: fixed;
-      top: 0; left: 0; right: 0;
+      top: 0;
+      left: 0;
+      right: 0;
       padding: 1.2rem 2rem;
       display: flex;
       justify-content: space-between;
@@ -97,7 +112,8 @@
     }
 
     .logo-dot {
-      width: 8px; height: 8px;
+      width: 8px;
+      height: 8px;
       background: var(--accent);
       border-radius: 50%;
       box-shadow: 0 0 14px var(--accent);
@@ -105,8 +121,17 @@
     }
 
     @keyframes pulse {
-      0%, 100% { opacity: 1; transform: scale(1); }
-      50% { opacity: 0.55; transform: scale(0.82); }
+
+      0%,
+      100% {
+        opacity: 1;
+        transform: scale(1);
+      }
+
+      50% {
+        opacity: 0.55;
+        transform: scale(0.82);
+      }
     }
 
     .lang-toggle {
@@ -135,7 +160,9 @@
       font-weight: 700;
     }
 
-    .lang-toggle button:hover:not(.active) { color: var(--text); }
+    .lang-toggle button:hover:not(.active) {
+      color: var(--text);
+    }
 
     /* HERO */
     .hero {
@@ -160,7 +187,8 @@
 
     .hero-meta::before {
       content: '';
-      width: 36px; height: 1px;
+      width: 36px;
+      height: 1px;
       background: var(--accent);
     }
 
@@ -232,12 +260,21 @@
     }
 
     @keyframes fadeInUp {
-      from { opacity: 0; transform: translateY(24px); }
-      to { opacity: 1; transform: translateY(0); }
+      from {
+        opacity: 0;
+        transform: translateY(24px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
     }
 
     /* SECTIONS */
-    section { padding: 6rem 0; }
+    section {
+      padding: 6rem 0;
+    }
 
     .section-label {
       font-family: var(--mono);
@@ -251,7 +288,10 @@
       gap: 0.6rem;
     }
 
-    .section-label::before { content: '/'; opacity: 0.4; }
+    .section-label::before {
+      content: '/';
+      opacity: 0.4;
+    }
 
     .section-title {
       font-family: var(--display);
@@ -283,8 +323,10 @@
     .service-card::before {
       content: '';
       position: absolute;
-      top: 0; left: 0;
-      width: 100%; height: 1px;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 1px;
       background: linear-gradient(90deg, transparent, var(--accent), transparent);
       opacity: 0;
       transition: opacity 0.4s;
@@ -296,7 +338,9 @@
       background: var(--surface-2);
     }
 
-    .service-card:hover::before { opacity: 1; }
+    .service-card:hover::before {
+      opacity: 1;
+    }
 
     .service-num {
       font-family: var(--mono);
@@ -335,7 +379,9 @@
       transition: padding 0.3s ease;
     }
 
-    .project:hover { padding-left: 1.5rem; }
+    .project:hover {
+      padding-left: 1.5rem;
+    }
 
     .project-num {
       font-family: var(--mono);
@@ -396,9 +442,14 @@
       margin-top: 1.6rem;
     }
 
-    .contact-info dt:first-child { margin-top: 0; }
+    .contact-info dt:first-child {
+      margin-top: 0;
+    }
 
-    .contact-info dd { color: var(--text); margin-bottom: 0.4rem; }
+    .contact-info dd {
+      color: var(--text);
+      margin-bottom: 0.4rem;
+    }
 
     .contact-info a {
       color: var(--accent);
@@ -407,7 +458,9 @@
       transition: border-color 0.2s;
     }
 
-    .contact-info a:hover { border-bottom-color: var(--accent); }
+    .contact-info a:hover {
+      border-bottom-color: var(--accent);
+    }
 
     .contact-cta {
       background: var(--surface);
@@ -421,8 +474,10 @@
     .contact-cta::before {
       content: '';
       position: absolute;
-      top: -60%; right: -40%;
-      width: 100%; height: 120%;
+      top: -60%;
+      right: -40%;
+      width: 100%;
+      height: 120%;
       background: radial-gradient(circle, var(--accent-glow) 0%, transparent 60%);
       pointer-events: none;
     }
@@ -460,7 +515,9 @@
       gap: 2rem;
     }
 
-    .legal-block { max-width: 60%; }
+    .legal-block {
+      max-width: 60%;
+    }
 
     .legal-block strong {
       color: var(--text);
@@ -468,27 +525,64 @@
       font-size: 0.85rem;
     }
 
-    .footer-meta { text-align: right; opacity: 0.8; }
+    .footer-meta {
+      text-align: right;
+      opacity: 0.8;
+    }
 
     /* RESPONSIVE */
     @media (max-width: 768px) {
-      .container { padding: 0 1.3rem; }
-      header { padding: 1rem 1.3rem; }
-      .project { grid-template-columns: 1fr; gap: 0.7rem; }
-      .project-num { display: none; }
-      .project:hover { padding-left: 0; }
-      .contact-grid { grid-template-columns: 1fr; gap: 2rem; }
-      .footer-content { flex-direction: column; }
-      .legal-block { max-width: 100%; }
-      .footer-meta { text-align: left; }
-      section { padding: 4.5rem 0; }
+      .container {
+        padding: 0 1.3rem;
+      }
+
+      header {
+        padding: 1rem 1.3rem;
+      }
+
+      .project {
+        grid-template-columns: 1fr;
+        gap: 0.7rem;
+      }
+
+      .project-num {
+        display: none;
+      }
+
+      .project:hover {
+        padding-left: 0;
+      }
+
+      .contact-grid {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+      }
+
+      .footer-content {
+        flex-direction: column;
+      }
+
+      .legal-block {
+        max-width: 100%;
+      }
+
+      .footer-meta {
+        text-align: left;
+      }
+
+      section {
+        padding: 4.5rem 0;
+      }
     }
 
     /* LANG SWITCHING */
     [data-lang="en"] [data-fr],
-    [data-lang="fr"] [data-en] { display: none; }
+    [data-lang="fr"] [data-en] {
+      display: none;
+    }
   </style>
 </head>
+
 <body>
   <div class="grid-overlay"></div>
 
@@ -514,8 +608,10 @@
         <span data-en>Code, consulting,<br><span class="accent">software</span> craft.</span>
       </h1>
       <p class="hero-sub">
-        <span data-fr>Studio indépendant de développement de logiciels, sites web et applications mobiles. Édité depuis la Loire-Atlantique.</span>
-        <span data-en>Independent studio building software, websites and mobile apps. Crafted from Loire-Atlantique, France.</span>
+        <span data-fr>Studio indépendant de développement de logiciels, sites web et applications mobiles. Édité depuis
+          la Loire-Atlantique.</span>
+        <span data-en>Independent studio building software, websites and mobile apps. Crafted from Loire-Atlantique,
+          France.</span>
       </p>
       <div class="hero-cta">
         <a href="#projects" class="btn btn-primary">
@@ -548,7 +644,8 @@
             <span data-en>Mobile apps</span>
           </h3>
           <p>
-            <span data-fr>Conception et développement d'applications iOS &amp; Android. Stack Flutter, Firebase, RevenueCat.</span>
+            <span data-fr>Conception et développement d'applications iOS &amp; Android. Stack Flutter, Firebase,
+              RevenueCat.</span>
             <span data-en>iOS &amp; Android app design and development. Stack: Flutter, Firebase, RevenueCat.</span>
           </p>
         </article>
@@ -572,7 +669,8 @@
             <span data-en>Tech consulting</span>
           </h3>
           <p>
-            <span data-fr>Audit, conseil en architecture et choix techniques pour systèmes et logiciels informatiques.</span>
+            <span data-fr>Audit, conseil en architecture et choix techniques pour systèmes et logiciels
+              informatiques.</span>
             <span data-en>Audit, architecture consulting and technical decision-making for software systems.</span>
           </p>
         </article>
@@ -595,7 +693,8 @@
           <div class="project-info">
             <h3>Octolith</h3>
             <p>
-              <span data-fr>Application mobile compagnon pour les joueurs de Warhammer Age of Sigmar. Listes d'armée, règles, parties.</span>
+              <span data-fr>Application mobile compagnon pour les joueurs de Warhammer Age of Sigmar. Listes d'armée,
+                règles, parties.</span>
               <span data-en>Mobile companion app for Warhammer Age of Sigmar players. Army lists, rules, battles.</span>
             </p>
           </div>
@@ -635,7 +734,7 @@
       <div class="contact-grid">
         <dl class="contact-info">
           <dt>Email</dt>
-          <dd><a href="mailto:matthieu@octocode-dev.com">matthieu@octocode-dev.com</a></dd>
+          <dd><a href="mailto:0cto@octocode-dev.com">0cto@octocode-dev.com</a></dd>
 
           <dt>
             <span data-fr>Adresse</span>
@@ -659,7 +758,7 @@
             <span data-fr>Pour discuter d'un projet, d'une idée ou d'une mission de conseil.</span>
             <span data-en>To talk about a project, an idea, or a consulting mission.</span>
           </p>
-          <a href="mailto:matthieu@octocode-dev.com" class="btn btn-primary">
+          <a href="mailto:0cto@octocode-dev.com" class="btn btn-primary">
             <span data-fr>Écrire un email</span>
             <span data-en>Send an email</span>
             <span>→</span>
@@ -673,15 +772,20 @@
     <div class="container footer-content">
       <div class="legal-block">
         <strong>Octocode SARL</strong><br>
-        <span data-fr>Société à responsabilité limitée à associé unique au capital de 1 000 €. RCS Saint-Nazaire 999 456 460. SIRET 99945646000016. TVA intracommunautaire FR64 999 456 460. Siège social : 9 route de Quilly, 44130 Bouvron, France. Gérant : Matthieu Achard.</span>
-        <span data-en>Single-member limited liability company, share capital €1,000. RCS Saint-Nazaire 999 456 460. SIRET 99945646000016. EU VAT FR64 999 456 460. Registered office: 9 route de Quilly, 44130 Bouvron, France. Managing director: Matthieu Achard.</span>
+        <span data-fr>Société à responsabilité limitée à associé unique au capital de 1 000 €. RCS Saint-Nazaire 999 456
+          460. SIRET 99945646000016. TVA intracommunautaire FR64 999 456 460. Siège social : 9 route de Quilly, 44130
+          Bouvron, France. Gérant : Matthieu Achard.</span>
+        <span data-en>Single-member limited liability company, share capital €1,000. RCS Saint-Nazaire 999 456 460.
+          SIRET 99945646000016. EU VAT FR64 999 456 460. Registered office: 9 route de Quilly, 44130 Bouvron, France.
+          Managing director: Matthieu Achard.</span>
       </div>
       <div class="footer-meta">
         © 2026 Octocode<br>
         <span data-fr>Tous droits réservés.</span>
         <span data-en>All rights reserved.</span>
         <br>
-        <a href="/octolith/privacy/" style="color: var(--text-muted); text-decoration: none; border-bottom: 1px dotted var(--text-dim);">
+        <a href="/octolith/privacy/"
+          style="color: var(--text-muted); text-decoration: none; border-bottom: 1px dotted var(--text-dim);">
           <span data-fr>Octolith — Politique de confidentialité</span>
           <span data-en>Octolith — Privacy Policy</span>
         </a>
@@ -700,7 +804,7 @@
         langButtons.forEach(function (b) {
           b.classList.toggle('active', b.getAttribute('data-set-lang') === lang);
         });
-        try { localStorage.setItem('lang', lang); } catch (e) {}
+        try { localStorage.setItem('lang', lang); } catch (e) { }
       }
 
       langButtons.forEach(function (btn) {
@@ -712,8 +816,9 @@
       try {
         var saved = localStorage.getItem('lang');
         if (saved === 'fr' || saved === 'en') setLang(saved);
-      } catch (e) {}
+      } catch (e) { }
     })();
   </script>
 </body>
+
 </html>

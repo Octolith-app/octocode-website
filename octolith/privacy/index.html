@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="fr" data-lang="fr">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -10,7 +11,9 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,600&family=JetBrains+Mono:wght@400;500;600&family=Manrope:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,600&family=JetBrains+Mono:wght@400;500;600&family=Manrope:wght@300;400;500;600;700&display=swap"
+    rel="stylesheet">
 
   <style>
     :root {
@@ -28,8 +31,15 @@
       --mono: 'JetBrains Mono', ui-monospace, monospace;
     }
 
-    * { box-sizing: border-box; margin: 0; padding: 0; }
-    html { scroll-behavior: smooth; }
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
 
     body {
       font-family: var(--body);
@@ -42,7 +52,8 @@
 
     body::before {
       content: '';
-      position: fixed; inset: 0;
+      position: fixed;
+      inset: 0;
       background-image:
         radial-gradient(circle at 15% 25%, rgba(251, 191, 36, 0.04) 0%, transparent 35%),
         radial-gradient(circle at 85% 75%, rgba(251, 191, 36, 0.025) 0%, transparent 45%);
@@ -93,7 +104,9 @@
       transition: color 0.2s;
     }
 
-    .back-link:hover { color: var(--accent); }
+    .back-link:hover {
+      color: var(--accent);
+    }
 
     .lang-toggle {
       font-family: var(--mono);
@@ -121,7 +134,9 @@
       font-weight: 700;
     }
 
-    .lang-toggle button:hover:not(.active) { color: var(--text); }
+    .lang-toggle button:hover:not(.active) {
+      color: var(--text);
+    }
 
     /* CONTENT */
     main {
@@ -140,7 +155,10 @@
       gap: 0.6rem;
     }
 
-    .doc-meta::before { content: '/'; opacity: 0.5; }
+    .doc-meta::before {
+      content: '/';
+      opacity: 0.5;
+    }
 
     h1 {
       font-family: var(--display);
@@ -208,7 +226,9 @@
       padding-left: 0.4rem;
     }
 
-    ul li::marker { color: var(--accent); }
+    ul li::marker {
+      color: var(--accent);
+    }
 
     a {
       color: var(--accent);
@@ -217,7 +237,9 @@
       transition: border-color 0.2s;
     }
 
-    a:hover { border-bottom-color: var(--accent); }
+    a:hover {
+      border-bottom-color: var(--accent);
+    }
 
     code {
       font-family: var(--mono);
@@ -248,7 +270,9 @@
       margin-top: 1rem;
     }
 
-    .legal-card dt:first-child { margin-top: 0; }
+    .legal-card dt:first-child {
+      margin-top: 0;
+    }
 
     .legal-card dd {
       color: var(--text);
@@ -276,19 +300,39 @@
 
     /* LANG SWITCHING */
     [data-lang="en"] [data-fr],
-    [data-lang="fr"] [data-en] { display: none; }
+    [data-lang="fr"] [data-en] {
+      display: none;
+    }
 
     /* RESPONSIVE */
     @media (max-width: 640px) {
-      header { padding: 1rem 1.2rem; }
-      .container { padding: 0 1.2rem; }
-      main { padding: 2.5rem 0 4rem; }
-      h1 { margin-bottom: 1rem; }
-      h2 { margin-top: 2.4rem; }
-      .legal-card { padding: 1.3rem; }
+      header {
+        padding: 1rem 1.2rem;
+      }
+
+      .container {
+        padding: 0 1.2rem;
+      }
+
+      main {
+        padding: 2.5rem 0 4rem;
+      }
+
+      h1 {
+        margin-bottom: 1rem;
+      }
+
+      h2 {
+        margin-top: 2.4rem;
+      }
+
+      .legal-card {
+        padding: 1.3rem;
+      }
     }
   </style>
 </head>
+
 <body>
   <header>
     <div class="header-inner">
@@ -319,8 +363,12 @@
     </p>
 
     <p class="muted">
-      <span data-fr>La présente politique de confidentialité décrit comment <strong>Octocode</strong> (« nous », « notre ») collecte, utilise et partage vos informations dans le cadre de votre utilisation de l'application mobile <strong>Octolith</strong> (l'« Application »).</span>
-      <span data-en>This Privacy Policy describes how <strong>Octocode</strong> ("we", "us", "our") collects, uses, and discloses your information in connection with your use of our mobile application <strong>Octolith</strong> (the "App").</span>
+      <span data-fr>La présente politique de confidentialité décrit comment <strong>Octocode</strong> (« nous », « notre
+        ») collecte, utilise et partage vos informations dans le cadre de votre utilisation de l'application mobile
+        <strong>Octolith</strong> (l'« Application »).</span>
+      <span data-en>This Privacy Policy describes how <strong>Octocode</strong> ("we", "us", "our") collects, uses, and
+        discloses your information in connection with your use of our mobile application <strong>Octolith</strong> (the
+        "App").</span>
     </p>
 
     <h2><span class="num">01.</span>
@@ -328,7 +376,8 @@
       <span data-en>Information We Collect</span>
     </h2>
     <p>
-      <span data-fr>Nous collectons les informations que vous nous fournissez directement lors de la création de votre compte :</span>
+      <span data-fr>Nous collectons les informations que vous nous fournissez directement lors de la création de votre
+        compte :</span>
       <span data-en>We collect information that you provide directly to us when you create an account:</span>
     </p>
     <ul>
@@ -346,8 +395,10 @@
       </li>
     </ul>
     <p>
-      <span data-fr>Nous collectons également les contenus que vous créez au sein de l'Application (listes d'armée, données de partie, statistiques de jeu).</span>
-      <span data-en>We also collect content you create within the App (army lists, game data, gameplay statistics).</span>
+      <span data-fr>Nous collectons également les contenus que vous créez au sein de l'Application (listes d'armée,
+        données de partie, statistiques de jeu).</span>
+      <span data-en>We also collect content you create within the App (army lists, game data, gameplay
+        statistics).</span>
     </p>
 
     <h2><span class="num">02.</span>
@@ -377,8 +428,10 @@
       </li>
     </ul>
     <p class="muted">
-      <span data-fr>La base légale de ce traitement est l'exécution du contrat qui vous lie à Octocode lorsque vous utilisez l'Application (article 6.1.b RGPD).</span>
-      <span data-en>The legal basis for this processing is the performance of the contract between you and Octocode when you use the App (Article 6(1)(b) GDPR).</span>
+      <span data-fr>La base légale de ce traitement est l'exécution du contrat qui vous lie à Octocode lorsque vous
+        utilisez l'Application (article 6.1.b RGPD).</span>
+      <span data-en>The legal basis for this processing is the performance of the contract between you and Octocode when
+        you use the App (Article 6(1)(b) GDPR).</span>
     </p>
 
     <h2><span class="num">03.</span>
@@ -386,17 +439,23 @@
       <span data-en>Third-Party Services</span>
     </h2>
     <p>
-      <span data-fr>Notre Application utilise des services tiers susceptibles de collecter des informations vous concernant. Les principaux services utilisés sont :</span>
-      <span data-en>Our App uses third-party services that may collect information used to identify you. The main services we use are:</span>
+      <span data-fr>Notre Application utilise des services tiers susceptibles de collecter des informations vous
+        concernant. Les principaux services utilisés sont :</span>
+      <span data-en>Our App uses third-party services that may collect information used to identify you. The main
+        services we use are:</span>
     </p>
     <ul>
       <li>
-        <span data-fr><strong>Firebase</strong> (service Google) : authentification, base de données (Firestore), Cloud Functions, et App Check.</span>
-        <span data-en><strong>Firebase</strong> (a Google service): user authentication, database (Firestore), Cloud Functions, and App Check.</span>
+        <span data-fr><strong>Firebase</strong> (service Google) : authentification, base de données (Firestore), Cloud
+          Functions, et App Check.</span>
+        <span data-en><strong>Firebase</strong> (a Google service): user authentication, database (Firestore), Cloud
+          Functions, and App Check.</span>
       </li>
       <li>
-        <span data-fr><strong>Google Play Billing</strong> et <strong>Apple App Store</strong> : tous les achats intégrés et abonnements sont traités par les boutiques d'applications respectives.</span>
-        <span data-en><strong>Google Play Billing</strong> and <strong>Apple App Store</strong>: all in-app purchases and subscriptions are processed by the respective app stores.</span>
+        <span data-fr><strong>Google Play Billing</strong> et <strong>Apple App Store</strong> : tous les achats
+          intégrés et abonnements sont traités par les boutiques d'applications respectives.</span>
+        <span data-en><strong>Google Play Billing</strong> and <strong>Apple App Store</strong>: all in-app purchases
+          and subscriptions are processed by the respective app stores.</span>
       </li>
       <li>
         <span data-fr><strong>RevenueCat</strong> : gestion des abonnements et synchronisation entre plateformes.</span>
@@ -409,8 +468,12 @@
       <span data-en>Data Retention</span>
     </h2>
     <p>
-      <span data-fr>Vos données sont conservées tant que votre compte est actif. Si vous supprimez votre compte, vos données personnelles sont effacées de nos serveurs dans un délai de 30 jours, à l'exception des données que nous sommes légalement tenus de conserver (par exemple, données de facturation pendant 10 ans).</span>
-      <span data-en>Your data is retained as long as your account is active. If you delete your account, your personal data is removed from our servers within 30 days, except for data we are legally required to retain (e.g., billing records for 10 years).</span>
+      <span data-fr>Vos données sont conservées tant que votre compte est actif. Si vous supprimez votre compte, vos
+        données personnelles sont effacées de nos serveurs dans un délai de 30 jours, à l'exception des données que nous
+        sommes légalement tenus de conserver (par exemple, données de facturation pendant 10 ans).</span>
+      <span data-en>Your data is retained as long as your account is active. If you delete your account, your personal
+        data is removed from our servers within 30 days, except for data we are legally required to retain (e.g.,
+        billing records for 10 years).</span>
     </p>
 
     <h2><span class="num">05.</span>
@@ -418,8 +481,10 @@
       <span data-en>Your Rights</span>
     </h2>
     <p>
-      <span data-fr>Conformément au RGPD et à la loi Informatique et Libertés, vous disposez des droits suivants sur vos données personnelles :</span>
-      <span data-en>Under the GDPR and applicable data protection laws, you have the following rights regarding your personal data:</span>
+      <span data-fr>Conformément au RGPD et à la loi Informatique et Libertés, vous disposez des droits suivants sur vos
+        données personnelles :</span>
+      <span data-en>Under the GDPR and applicable data protection laws, you have the following rights regarding your
+        personal data:</span>
     </p>
     <ul>
       <li>
@@ -436,16 +501,25 @@
       </li>
       <li>
         <span data-fr>Droit de définir des directives relatives au sort de vos données après votre décès.</span>
-        <span data-en>Right to give instructions regarding what happens to your data after your death (under French law).</span>
+        <span data-en>Right to give instructions regarding what happens to your data after your death (under French
+          law).</span>
       </li>
     </ul>
     <p>
-      <span data-fr>Pour exercer ces droits, contactez-nous à <a href="mailto:matthieu@octocode-dev.com">matthieu@octocode-dev.com</a>. Vous pouvez également supprimer votre compte directement depuis les réglages de l'Application.</span>
-      <span data-en>To exercise these rights, contact us at <a href="mailto:matthieu@octocode-dev.com">matthieu@octocode-dev.com</a>. You can also delete your account directly from the App's settings.</span>
+      <span data-fr>Pour exercer ces droits, contactez-nous à <a
+          href="mailto:0cto@octocode-dev.com">0cto@octocode-dev.com</a>. Vous pouvez également supprimer votre compte
+        directement depuis les réglages de l'Application.</span>
+      <span data-en>To exercise these rights, contact us at <a
+          href="mailto:0cto@octocode-dev.com">0cto@octocode-dev.com</a>. You can also delete your account directly from
+        the App's settings.</span>
     </p>
     <p class="muted">
-      <span data-fr>Si vous estimez que le traitement de vos données ne respecte pas la réglementation, vous avez le droit d'introduire une réclamation auprès de la <a href="https://www.cnil.fr" target="_blank" rel="noopener">CNIL</a>.</span>
-      <span data-en>If you believe that the processing of your data does not comply with regulations, you have the right to lodge a complaint with the French data protection authority (<a href="https://www.cnil.fr" target="_blank" rel="noopener">CNIL</a>).</span>
+      <span data-fr>Si vous estimez que le traitement de vos données ne respecte pas la réglementation, vous avez le
+        droit d'introduire une réclamation auprès de la <a href="https://www.cnil.fr" target="_blank"
+          rel="noopener">CNIL</a>.</span>
+      <span data-en>If you believe that the processing of your data does not comply with regulations, you have the right
+        to lodge a complaint with the French data protection authority (<a href="https://www.cnil.fr" target="_blank"
+          rel="noopener">CNIL</a>).</span>
     </p>
 
     <h2><span class="num">06.</span>
@@ -453,8 +527,11 @@
       <span data-en>Data Security</span>
     </h2>
     <p>
-      <span data-fr>Nous mettons en œuvre des mesures raisonnables pour protéger vos informations contre la perte, le vol, l'usage abusif ou l'accès non autorisé. Toutefois, aucune transmission ou stockage électronique n'est sûr à 100 %.</span>
-      <span data-en>We take reasonable measures to help protect your information from loss, theft, misuse, and unauthorized access. However, no electronic transmission or storage is 100% secure.</span>
+      <span data-fr>Nous mettons en œuvre des mesures raisonnables pour protéger vos informations contre la perte, le
+        vol, l'usage abusif ou l'accès non autorisé. Toutefois, aucune transmission ou stockage électronique n'est sûr à
+        100 %.</span>
+      <span data-en>We take reasonable measures to help protect your information from loss, theft, misuse, and
+        unauthorized access. However, no electronic transmission or storage is 100% secure.</span>
     </p>
 
     <h2><span class="num">07.</span>
@@ -462,8 +539,11 @@
       <span data-en>Changes to This Privacy Policy</span>
     </h2>
     <p>
-      <span data-fr>Nous pouvons mettre à jour cette politique de confidentialité de temps à autre. Les modifications seront publiées sur cette page avec la date de mise à jour. Pour les changements significatifs, nous vous notifierons par email ou via l'Application.</span>
-      <span data-en>We may update this Privacy Policy from time to time. Changes will be posted on this page with the updated date. For significant changes, we will notify you by email or in-App.</span>
+      <span data-fr>Nous pouvons mettre à jour cette politique de confidentialité de temps à autre. Les modifications
+        seront publiées sur cette page avec la date de mise à jour. Pour les changements significatifs, nous vous
+        notifierons par email ou via l'Application.</span>
+      <span data-en>We may update this Privacy Policy from time to time. Changes will be posted on this page with the
+        updated date. For significant changes, we will notify you by email or in-App.</span>
     </p>
 
     <h2><span class="num">08.</span>
@@ -475,7 +555,7 @@
       <span data-en>For any questions about this Privacy Policy:</span>
     </p>
     <p>
-      Email: <a href="mailto:matthieu@octocode-dev.com">matthieu@octocode-dev.com</a>
+      Email: <a href="mailto:0cto@octocode-dev.com">0cto@octocode-dev.com</a>
     </p>
 
     <h2><span class="num">09.</span>
@@ -558,7 +638,7 @@
         langButtons.forEach(function (b) {
           b.classList.toggle('active', b.getAttribute('data-set-lang') === lang);
         });
-        try { localStorage.setItem('lang', lang); } catch (e) {}
+        try { localStorage.setItem('lang', lang); } catch (e) { }
       }
 
       langButtons.forEach(function (btn) {
@@ -570,8 +650,9 @@
       try {
         var saved = localStorage.getItem('lang');
         if (saved === 'fr' || saved === 'en') setLang(saved);
-      } catch (e) {}
+      } catch (e) { }
     })();
   </script>
 </body>
+
 </html>
