@@ -1,0 +1,714 @@
+<!DOCTYPE html>
+<html lang="fr" data-lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Octocode — Studio de développement logiciel</title>
+  <meta name="description" content="Octocode SARL — Studio indépendant de développement de logiciels, sites web et applications mobiles. Bouvron, France.">
+  <meta name="theme-color" content="#0a0a0a">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,500;12..96,600;12..96,700&family=JetBrains+Mono:wght@400;500;600;700&family=Manrope:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --bg: #0a0a0a;
+      --surface: #141414;
+      --surface-2: #1a1a1a;
+      --border: #242424;
+      --border-strong: #333;
+      --text: #e8e8e8;
+      --text-muted: #888;
+      --text-dim: #555;
+      --accent: #fbbf24;
+      --accent-dim: #f59e0b;
+      --accent-glow: rgba(251, 191, 36, 0.15);
+      --display: 'Bricolage Grotesque', system-ui, sans-serif;
+      --body: 'Manrope', system-ui, sans-serif;
+      --mono: 'JetBrains Mono', ui-monospace, monospace;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: var(--body);
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+      min-height: 100vh;
+    }
+
+    body::before {
+      content: '';
+      position: fixed; inset: 0;
+      background-image:
+        radial-gradient(circle at 15% 25%, rgba(251, 191, 36, 0.05) 0%, transparent 35%),
+        radial-gradient(circle at 85% 75%, rgba(251, 191, 36, 0.03) 0%, transparent 45%);
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .grid-overlay {
+      position: fixed; inset: 0;
+      background-image:
+        linear-gradient(to right, rgba(255, 255, 255, 0.018) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(255, 255, 255, 0.018) 1px, transparent 1px);
+      background-size: 64px 64px;
+      mask-image: radial-gradient(ellipse at center, black 50%, transparent 100%);
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .container {
+      max-width: 1240px;
+      margin: 0 auto;
+      padding: 0 2rem;
+      position: relative;
+      z-index: 1;
+    }
+
+    /* HEADER */
+    header {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      padding: 1.2rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      z-index: 100;
+      background: rgba(10, 10, 10, 0.7);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .logo {
+      font-family: var(--mono);
+      font-weight: 700;
+      font-size: 0.95rem;
+      letter-spacing: -0.02em;
+      display: flex;
+      align-items: center;
+      gap: 0.7rem;
+    }
+
+    .logo-dot {
+      width: 8px; height: 8px;
+      background: var(--accent);
+      border-radius: 50%;
+      box-shadow: 0 0 14px var(--accent);
+      animation: pulse 2.4s ease-in-out infinite;
+    }
+
+    @keyframes pulse {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.55; transform: scale(0.82); }
+    }
+
+    .lang-toggle {
+      font-family: var(--mono);
+      font-size: 0.78rem;
+      display: flex;
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      overflow: hidden;
+    }
+
+    .lang-toggle button {
+      background: transparent;
+      color: var(--text-muted);
+      border: none;
+      padding: 0.45rem 0.85rem;
+      cursor: pointer;
+      font-family: inherit;
+      font-size: inherit;
+      transition: all 0.2s;
+    }
+
+    .lang-toggle button.active {
+      background: var(--accent);
+      color: var(--bg);
+      font-weight: 700;
+    }
+
+    .lang-toggle button:hover:not(.active) { color: var(--text); }
+
+    /* HERO */
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 8rem 0 4rem;
+    }
+
+    .hero-meta {
+      font-family: var(--mono);
+      font-size: 0.78rem;
+      color: var(--text-muted);
+      letter-spacing: 0.06em;
+      margin-bottom: 2.2rem;
+      display: flex;
+      gap: 1rem;
+      align-items: center;
+      animation: fadeInUp 0.9s ease-out;
+    }
+
+    .hero-meta::before {
+      content: '';
+      width: 36px; height: 1px;
+      background: var(--accent);
+    }
+
+    .hero h1 {
+      font-family: var(--display);
+      font-weight: 500;
+      font-size: clamp(2.8rem, 8.5vw, 7rem);
+      line-height: 0.96;
+      letter-spacing: -0.045em;
+      margin-bottom: 2rem;
+      animation: fadeInUp 0.9s 0.1s ease-out backwards;
+    }
+
+    .hero h1 .accent {
+      color: var(--accent);
+      font-style: italic;
+      font-weight: 400;
+    }
+
+    .hero-sub {
+      font-size: clamp(1.05rem, 1.8vw, 1.3rem);
+      color: var(--text-muted);
+      max-width: 600px;
+      margin-bottom: 2.8rem;
+      font-weight: 300;
+      animation: fadeInUp 0.9s 0.2s ease-out backwards;
+    }
+
+    .hero-cta {
+      display: flex;
+      gap: 0.9rem;
+      flex-wrap: wrap;
+      animation: fadeInUp 0.9s 0.3s ease-out backwards;
+    }
+
+    .btn {
+      font-family: var(--mono);
+      font-size: 0.85rem;
+      padding: 0.85rem 1.5rem;
+      border: 1px solid var(--border-strong);
+      background: transparent;
+      color: var(--text);
+      text-decoration: none;
+      border-radius: 6px;
+      transition: all 0.25s ease;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.55rem;
+      cursor: pointer;
+      font-weight: 500;
+    }
+
+    .btn:hover {
+      border-color: var(--accent);
+      color: var(--accent);
+      transform: translateY(-1px);
+    }
+
+    .btn-primary {
+      background: var(--accent);
+      color: var(--bg);
+      border-color: var(--accent);
+      font-weight: 700;
+    }
+
+    .btn-primary:hover {
+      background: transparent;
+      color: var(--accent);
+    }
+
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(24px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* SECTIONS */
+    section { padding: 6rem 0; }
+
+    .section-label {
+      font-family: var(--mono);
+      font-size: 0.74rem;
+      color: var(--accent);
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      margin-bottom: 1.2rem;
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+    }
+
+    .section-label::before { content: '/'; opacity: 0.4; }
+
+    .section-title {
+      font-family: var(--display);
+      font-weight: 500;
+      font-size: clamp(1.9rem, 4.8vw, 3.4rem);
+      letter-spacing: -0.035em;
+      line-height: 1.06;
+      margin-bottom: 3.5rem;
+      max-width: 820px;
+    }
+
+    /* SERVICES */
+    .services {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.2rem;
+    }
+
+    .service-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 2.2rem 1.8rem;
+      transition: all 0.3s ease;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .service-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%; height: 1px;
+      background: linear-gradient(90deg, transparent, var(--accent), transparent);
+      opacity: 0;
+      transition: opacity 0.4s;
+    }
+
+    .service-card:hover {
+      border-color: var(--border-strong);
+      transform: translateY(-3px);
+      background: var(--surface-2);
+    }
+
+    .service-card:hover::before { opacity: 1; }
+
+    .service-num {
+      font-family: var(--mono);
+      font-size: 0.72rem;
+      color: var(--text-dim);
+      margin-bottom: 1.4rem;
+      letter-spacing: 0.05em;
+    }
+
+    .service-card h3 {
+      font-family: var(--display);
+      font-weight: 600;
+      font-size: 1.45rem;
+      letter-spacing: -0.02em;
+      margin-bottom: 0.7rem;
+    }
+
+    .service-card p {
+      color: var(--text-muted);
+      font-size: 0.92rem;
+      line-height: 1.65;
+    }
+
+    /* PROJECTS */
+    .projects {
+      border-top: 1px solid var(--border);
+    }
+
+    .project {
+      display: grid;
+      grid-template-columns: 80px 1fr auto;
+      gap: 2rem;
+      padding: 2.4rem 0;
+      border-bottom: 1px solid var(--border);
+      align-items: center;
+      transition: padding 0.3s ease;
+    }
+
+    .project:hover { padding-left: 1.5rem; }
+
+    .project-num {
+      font-family: var(--mono);
+      font-size: 0.82rem;
+      color: var(--text-dim);
+    }
+
+    .project-info h3 {
+      font-family: var(--display);
+      font-weight: 500;
+      font-size: clamp(1.5rem, 3.2vw, 2.2rem);
+      letter-spacing: -0.025em;
+      margin-bottom: 0.4rem;
+    }
+
+    .project-info p {
+      color: var(--text-muted);
+      max-width: 560px;
+      font-size: 0.95rem;
+    }
+
+    .project-status {
+      font-family: var(--mono);
+      font-size: 0.7rem;
+      color: var(--text-muted);
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      padding: 0.35rem 0.8rem;
+      border: 1px solid var(--border);
+      border-radius: 100px;
+      white-space: nowrap;
+    }
+
+    .project-status.live {
+      color: var(--accent);
+      border-color: var(--accent);
+    }
+
+    /* CONTACT */
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+      align-items: start;
+    }
+
+    .contact-info {
+      font-family: var(--mono);
+      font-size: 0.88rem;
+      line-height: 1.9;
+    }
+
+    .contact-info dt {
+      color: var(--text-dim);
+      font-size: 0.7rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      margin-top: 1.6rem;
+    }
+
+    .contact-info dt:first-child { margin-top: 0; }
+
+    .contact-info dd { color: var(--text); margin-bottom: 0.4rem; }
+
+    .contact-info a {
+      color: var(--accent);
+      text-decoration: none;
+      border-bottom: 1px solid transparent;
+      transition: border-color 0.2s;
+    }
+
+    .contact-info a:hover { border-bottom-color: var(--accent); }
+
+    .contact-cta {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 2.5rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .contact-cta::before {
+      content: '';
+      position: absolute;
+      top: -60%; right: -40%;
+      width: 100%; height: 120%;
+      background: radial-gradient(circle, var(--accent-glow) 0%, transparent 60%);
+      pointer-events: none;
+    }
+
+    .contact-cta h3 {
+      font-family: var(--display);
+      font-weight: 500;
+      font-size: 1.7rem;
+      letter-spacing: -0.025em;
+      margin-bottom: 1rem;
+      position: relative;
+    }
+
+    .contact-cta p {
+      color: var(--text-muted);
+      margin-bottom: 1.8rem;
+      position: relative;
+      font-size: 0.95rem;
+    }
+
+    /* FOOTER */
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 3rem 0 2rem;
+      font-family: var(--mono);
+      font-size: 0.76rem;
+      color: var(--text-muted);
+      line-height: 1.85;
+    }
+
+    .footer-content {
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 2rem;
+    }
+
+    .legal-block { max-width: 60%; }
+
+    .legal-block strong {
+      color: var(--text);
+      font-weight: 600;
+      font-size: 0.85rem;
+    }
+
+    .footer-meta { text-align: right; opacity: 0.8; }
+
+    /* RESPONSIVE */
+    @media (max-width: 768px) {
+      .container { padding: 0 1.3rem; }
+      header { padding: 1rem 1.3rem; }
+      .project { grid-template-columns: 1fr; gap: 0.7rem; }
+      .project-num { display: none; }
+      .project:hover { padding-left: 0; }
+      .contact-grid { grid-template-columns: 1fr; gap: 2rem; }
+      .footer-content { flex-direction: column; }
+      .legal-block { max-width: 100%; }
+      .footer-meta { text-align: left; }
+      section { padding: 4.5rem 0; }
+    }
+
+    /* LANG SWITCHING */
+    [data-lang="en"] [data-fr],
+    [data-lang="fr"] [data-en] { display: none; }
+  </style>
+</head>
+<body>
+  <div class="grid-overlay"></div>
+
+  <header>
+    <div class="logo">
+      <span class="logo-dot"></span>
+      <span>octocode<span style="color: var(--accent)">.</span></span>
+    </div>
+    <div class="lang-toggle">
+      <button data-set-lang="fr" class="active">FR</button>
+      <button data-set-lang="en">EN</button>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="hero">
+      <div class="hero-meta">
+        <span data-fr>SARL · Bouvron, France · Depuis 2026</span>
+        <span data-en>Ltd. · Bouvron, France · Est. 2026</span>
+      </div>
+      <h1>
+        <span data-fr>Code, conseil,<br><span class="accent">création</span> logicielle.</span>
+        <span data-en>Code, consulting,<br><span class="accent">software</span> craft.</span>
+      </h1>
+      <p class="hero-sub">
+        <span data-fr>Studio indépendant de développement de logiciels, sites web et applications mobiles. Édité depuis la Loire-Atlantique.</span>
+        <span data-en>Independent studio building software, websites and mobile apps. Crafted from Loire-Atlantique, France.</span>
+      </p>
+      <div class="hero-cta">
+        <a href="#projects" class="btn btn-primary">
+          <span data-fr>Voir les projets</span>
+          <span data-en>See projects</span>
+          <span>→</span>
+        </a>
+        <a href="#contact" class="btn">
+          <span data-fr>Nous contacter</span>
+          <span data-en>Get in touch</span>
+        </a>
+      </div>
+    </section>
+
+    <section id="services">
+      <div class="section-label">
+        <span data-fr>Activité</span>
+        <span data-en>What we do</span>
+      </div>
+      <h2 class="section-title">
+        <span data-fr>Développement, édition et conseil — sur mobile, web et systèmes.</span>
+        <span data-en>Development, publishing and consulting — across mobile, web and systems.</span>
+      </h2>
+
+      <div class="services">
+        <article class="service-card">
+          <div class="service-num">01 / 03</div>
+          <h3>
+            <span data-fr>Apps mobiles</span>
+            <span data-en>Mobile apps</span>
+          </h3>
+          <p>
+            <span data-fr>Conception et développement d'applications iOS &amp; Android. Stack Flutter, Firebase, RevenueCat.</span>
+            <span data-en>iOS &amp; Android app design and development. Stack: Flutter, Firebase, RevenueCat.</span>
+          </p>
+        </article>
+
+        <article class="service-card">
+          <div class="service-num">02 / 03</div>
+          <h3>
+            <span data-fr>Logiciels &amp; web</span>
+            <span data-en>Software &amp; web</span>
+          </h3>
+          <p>
+            <span data-fr>Édition de logiciels, sites et applications web. Du prototype au produit en production.</span>
+            <span data-en>Software publishing, websites and web applications. From prototype to production.</span>
+          </p>
+        </article>
+
+        <article class="service-card">
+          <div class="service-num">03 / 03</div>
+          <h3>
+            <span data-fr>Conseil tech</span>
+            <span data-en>Tech consulting</span>
+          </h3>
+          <p>
+            <span data-fr>Audit, conseil en architecture et choix techniques pour systèmes et logiciels informatiques.</span>
+            <span data-en>Audit, architecture consulting and technical decision-making for software systems.</span>
+          </p>
+        </article>
+      </div>
+    </section>
+
+    <section id="projects">
+      <div class="section-label">
+        <span data-fr>Réalisations</span>
+        <span data-en>Work</span>
+      </div>
+      <h2 class="section-title">
+        <span data-fr>Nos produits, nos terrains de jeu.</span>
+        <span data-en>Our products, our playgrounds.</span>
+      </h2>
+
+      <div class="projects">
+        <div class="project">
+          <div class="project-num">→ 01</div>
+          <div class="project-info">
+            <h3>Octolith</h3>
+            <p>
+              <span data-fr>Application mobile compagnon pour les joueurs de Warhammer Age of Sigmar. Listes d'armée, règles, parties.</span>
+              <span data-en>Mobile companion app for Warhammer Age of Sigmar players. Army lists, rules, battles.</span>
+            </p>
+          </div>
+          <div class="project-status live">
+            <span data-fr>En cours</span>
+            <span data-en>In progress</span>
+          </div>
+        </div>
+
+        <div class="project">
+          <div class="project-num">→ 02</div>
+          <div class="project-info">
+            <h3>OctoQuizz</h3>
+            <p>
+              <span data-fr>Jeu de quiz web. À paraître.</span>
+              <span data-en>Web quiz game. Coming soon.</span>
+            </p>
+          </div>
+          <div class="project-status">
+            <span data-fr>Bientôt</span>
+            <span data-en>Soon</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact">
+      <div class="section-label">
+        <span data-fr>Contact</span>
+        <span data-en>Contact</span>
+      </div>
+      <h2 class="section-title">
+        <span data-fr>Un projet, une idée, une question ?</span>
+        <span data-en>A project, an idea, a question?</span>
+      </h2>
+
+      <div class="contact-grid">
+        <dl class="contact-info">
+          <dt>Email</dt>
+          <dd><a href="mailto:matthieu@octocode-dev.com">matthieu@octocode-dev.com</a></dd>
+
+          <dt>
+            <span data-fr>Adresse</span>
+            <span data-en>Address</span>
+          </dt>
+          <dd>9 route de Quilly<br>44130 Bouvron, France</dd>
+
+          <dt>
+            <span data-fr>Forme juridique</span>
+            <span data-en>Legal form</span>
+          </dt>
+          <dd>SARL · RCS Saint-Nazaire</dd>
+        </dl>
+
+        <div class="contact-cta">
+          <h3>
+            <span data-fr>Travaillons ensemble.</span>
+            <span data-en>Let's build something.</span>
+          </h3>
+          <p>
+            <span data-fr>Pour discuter d'un projet, d'une idée ou d'une mission de conseil.</span>
+            <span data-en>To talk about a project, an idea, or a consulting mission.</span>
+          </p>
+          <a href="mailto:matthieu@octocode-dev.com" class="btn btn-primary">
+            <span data-fr>Écrire un email</span>
+            <span data-en>Send an email</span>
+            <span>→</span>
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container footer-content">
+      <div class="legal-block">
+        <strong>Octocode SARL</strong><br>
+        <span data-fr>Société à responsabilité limitée à associé unique au capital de 1 000 €. RCS Saint-Nazaire 999 456 460. SIRET 99945646000016. TVA intracommunautaire FR64 999 456 460. Siège social : 9 route de Quilly, 44130 Bouvron, France. Gérant : Matthieu Achard.</span>
+        <span data-en>Single-member limited liability company, share capital €1,000. RCS Saint-Nazaire 999 456 460. SIRET 99945646000016. EU VAT FR64 999 456 460. Registered office: 9 route de Quilly, 44130 Bouvron, France. Managing director: Matthieu Achard.</span>
+      </div>
+      <div class="footer-meta">
+        © 2026 Octocode<br>
+        <span data-fr>Tous droits réservés.</span>
+        <span data-en>All rights reserved.</span>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    (function () {
+      var langButtons = document.querySelectorAll('[data-set-lang]');
+      var root = document.documentElement;
+
+      function setLang(lang) {
+        root.setAttribute('data-lang', lang);
+        root.setAttribute('lang', lang);
+        langButtons.forEach(function (b) {
+          b.classList.toggle('active', b.getAttribute('data-set-lang') === lang);
+        });
+        try { localStorage.setItem('lang', lang); } catch (e) {}
+      }
+
+      langButtons.forEach(function (btn) {
+        btn.addEventListener('click', function () {
+          setLang(btn.getAttribute('data-set-lang'));
+        });
+      });
+
+      try {
+        var saved = localStorage.getItem('lang');
+        if (saved === 'fr' || saved === 'en') setLang(saved);
+      } catch (e) {}
+    })();
+  </script>
+</body>
+</html>
