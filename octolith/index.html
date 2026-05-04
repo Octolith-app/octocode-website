@@ -1,0 +1,577 @@
+<!DOCTYPE html>
+<html lang="fr" data-lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Octolith — Privacy Policy</title>
+  <meta name="description" content="Privacy Policy for the Octolith mobile application, published by Octocode SARL.">
+  <meta name="theme-color" content="#0a0a0a">
+  <meta name="robots" content="noindex">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,600&family=JetBrains+Mono:wght@400;500;600&family=Manrope:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --bg: #0a0a0a;
+      --surface: #141414;
+      --border: #242424;
+      --border-strong: #333;
+      --text: #e8e8e8;
+      --text-muted: #888;
+      --text-dim: #555;
+      --accent: #fbbf24;
+      --accent-glow: rgba(251, 191, 36, 0.15);
+      --display: 'Bricolage Grotesque', system-ui, sans-serif;
+      --body: 'Manrope', system-ui, sans-serif;
+      --mono: 'JetBrains Mono', ui-monospace, monospace;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: var(--body);
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.7;
+      -webkit-font-smoothing: antialiased;
+      min-height: 100vh;
+    }
+
+    body::before {
+      content: '';
+      position: fixed; inset: 0;
+      background-image:
+        radial-gradient(circle at 15% 25%, rgba(251, 191, 36, 0.04) 0%, transparent 35%),
+        radial-gradient(circle at 85% 75%, rgba(251, 191, 36, 0.025) 0%, transparent 45%);
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .container {
+      max-width: 820px;
+      margin: 0 auto;
+      padding: 0 1.6rem;
+      position: relative;
+      z-index: 1;
+    }
+
+    /* HEADER */
+    header {
+      position: sticky;
+      top: 0;
+      padding: 1.2rem 1.6rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      z-index: 100;
+      background: rgba(10, 10, 10, 0.78);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .header-inner {
+      max-width: 820px;
+      width: 100%;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .back-link {
+      font-family: var(--mono);
+      font-size: 0.82rem;
+      color: var(--text-muted);
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      transition: color 0.2s;
+    }
+
+    .back-link:hover { color: var(--accent); }
+
+    .lang-toggle {
+      font-family: var(--mono);
+      font-size: 0.78rem;
+      display: flex;
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      overflow: hidden;
+    }
+
+    .lang-toggle button {
+      background: transparent;
+      color: var(--text-muted);
+      border: none;
+      padding: 0.4rem 0.8rem;
+      cursor: pointer;
+      font-family: inherit;
+      font-size: inherit;
+      transition: all 0.2s;
+    }
+
+    .lang-toggle button.active {
+      background: var(--accent);
+      color: var(--bg);
+      font-weight: 700;
+    }
+
+    .lang-toggle button:hover:not(.active) { color: var(--text); }
+
+    /* CONTENT */
+    main {
+      padding: 4rem 0 6rem;
+    }
+
+    .doc-meta {
+      font-family: var(--mono);
+      font-size: 0.78rem;
+      color: var(--accent);
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      margin-bottom: 1.2rem;
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+    }
+
+    .doc-meta::before { content: '/'; opacity: 0.5; }
+
+    h1 {
+      font-family: var(--display);
+      font-weight: 500;
+      font-size: clamp(2.2rem, 5vw, 3.4rem);
+      letter-spacing: -0.035em;
+      line-height: 1.05;
+      margin-bottom: 1.5rem;
+    }
+
+    .last-updated {
+      font-family: var(--mono);
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      margin-bottom: 3rem;
+      padding-bottom: 2rem;
+      border-bottom: 1px solid var(--border);
+    }
+
+    h2 {
+      font-family: var(--display);
+      font-weight: 500;
+      font-size: clamp(1.4rem, 3vw, 1.8rem);
+      letter-spacing: -0.02em;
+      margin-top: 3rem;
+      margin-bottom: 1rem;
+      color: var(--text);
+    }
+
+    h2 .num {
+      font-family: var(--mono);
+      font-size: 0.8em;
+      font-weight: 400;
+      color: var(--accent);
+      margin-right: 0.5rem;
+    }
+
+    h3 {
+      font-family: var(--display);
+      font-weight: 600;
+      font-size: 1.1rem;
+      margin-top: 1.5rem;
+      margin-bottom: 0.6rem;
+      color: var(--text);
+    }
+
+    p {
+      margin-bottom: 1rem;
+      color: var(--text);
+      font-size: 1rem;
+    }
+
+    p.muted {
+      color: var(--text-muted);
+      font-size: 0.95rem;
+    }
+
+    ul {
+      margin: 0.8rem 0 1.5rem 1.5rem;
+      color: var(--text);
+    }
+
+    ul li {
+      margin-bottom: 0.5rem;
+      padding-left: 0.4rem;
+    }
+
+    ul li::marker { color: var(--accent); }
+
+    a {
+      color: var(--accent);
+      text-decoration: none;
+      border-bottom: 1px solid transparent;
+      transition: border-color 0.2s;
+    }
+
+    a:hover { border-bottom-color: var(--accent); }
+
+    code {
+      font-family: var(--mono);
+      font-size: 0.88em;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      padding: 0.1rem 0.4rem;
+      border-radius: 4px;
+      color: var(--text);
+    }
+
+    .legal-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 1.8rem;
+      margin: 1.5rem 0;
+      font-family: var(--mono);
+      font-size: 0.88rem;
+      line-height: 1.9;
+    }
+
+    .legal-card dt {
+      color: var(--text-dim);
+      font-size: 0.7rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      margin-top: 1rem;
+    }
+
+    .legal-card dt:first-child { margin-top: 0; }
+
+    .legal-card dd {
+      color: var(--text);
+    }
+
+    /* FOOTER */
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 2rem 0 2.5rem;
+      font-family: var(--mono);
+      font-size: 0.78rem;
+      color: var(--text-muted);
+      text-align: center;
+    }
+
+    footer a {
+      color: var(--text-muted);
+      border-bottom: 1px dotted var(--text-dim);
+    }
+
+    footer a:hover {
+      color: var(--accent);
+      border-bottom-color: var(--accent);
+    }
+
+    /* LANG SWITCHING */
+    [data-lang="en"] [data-fr],
+    [data-lang="fr"] [data-en] { display: none; }
+
+    /* RESPONSIVE */
+    @media (max-width: 640px) {
+      header { padding: 1rem 1.2rem; }
+      .container { padding: 0 1.2rem; }
+      main { padding: 2.5rem 0 4rem; }
+      h1 { margin-bottom: 1rem; }
+      h2 { margin-top: 2.4rem; }
+      .legal-card { padding: 1.3rem; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="header-inner">
+      <a href="/" class="back-link">
+        ← <span data-fr>octocode</span><span data-en>octocode</span>
+      </a>
+      <div class="lang-toggle">
+        <button data-set-lang="fr" class="active">FR</button>
+        <button data-set-lang="en">EN</button>
+      </div>
+    </div>
+  </header>
+
+  <main class="container">
+    <div class="doc-meta">
+      <span data-fr>Document légal</span>
+      <span data-en>Legal document</span>
+    </div>
+
+    <h1>
+      <span data-fr>Politique de confidentialité — Octolith</span>
+      <span data-en>Privacy Policy — Octolith</span>
+    </h1>
+
+    <p class="last-updated">
+      <span data-fr>Dernière mise à jour : 4 mai 2026</span>
+      <span data-en>Last updated: May 4, 2026</span>
+    </p>
+
+    <p class="muted">
+      <span data-fr>La présente politique de confidentialité décrit comment <strong>Octocode</strong> (« nous », « notre ») collecte, utilise et partage vos informations dans le cadre de votre utilisation de l'application mobile <strong>Octolith</strong> (l'« Application »).</span>
+      <span data-en>This Privacy Policy describes how <strong>Octocode</strong> ("we", "us", "our") collects, uses, and discloses your information in connection with your use of our mobile application <strong>Octolith</strong> (the "App").</span>
+    </p>
+
+    <h2><span class="num">01.</span>
+      <span data-fr>Informations collectées</span>
+      <span data-en>Information We Collect</span>
+    </h2>
+    <p>
+      <span data-fr>Nous collectons les informations que vous nous fournissez directement lors de la création de votre compte :</span>
+      <span data-en>We collect information that you provide directly to us when you create an account:</span>
+    </p>
+    <ul>
+      <li>
+        <span data-fr>Adresse email</span>
+        <span data-en>Email address</span>
+      </li>
+      <li>
+        <span data-fr>Mot de passe (traité de façon sécurisée par Firebase Authentication)</span>
+        <span data-en>Password (handled securely by Firebase Authentication)</span>
+      </li>
+      <li>
+        <span data-fr>Pseudonyme (Username)</span>
+        <span data-en>Username</span>
+      </li>
+    </ul>
+    <p>
+      <span data-fr>Nous collectons également les contenus que vous créez au sein de l'Application (listes d'armée, données de partie, statistiques de jeu).</span>
+      <span data-en>We also collect content you create within the App (army lists, game data, gameplay statistics).</span>
+    </p>
+
+    <h2><span class="num">02.</span>
+      <span data-fr>Utilisation des informations</span>
+      <span data-en>How We Use Your Information</span>
+    </h2>
+    <p>
+      <span data-fr>Nous utilisons les informations collectées pour :</span>
+      <span data-en>We use the information we collect to:</span>
+    </p>
+    <ul>
+      <li>
+        <span data-fr>Créer et gérer votre compte utilisateur.</span>
+        <span data-en>Create and manage your user account.</span>
+      </li>
+      <li>
+        <span data-fr>Fournir, maintenir et améliorer l'Application.</span>
+        <span data-en>Provide, maintain, and improve the App.</span>
+      </li>
+      <li>
+        <span data-fr>Vous permettre de créer et de sauvegarder votre contenu (listes d'armée, parties).</span>
+        <span data-en>Allow you to create and save content within the App (army lists, game data).</span>
+      </li>
+      <li>
+        <span data-fr>Traiter vos abonnements et débloquer les fonctionnalités premium.</span>
+        <span data-en>Process your subscriptions and unlock premium features.</span>
+      </li>
+    </ul>
+    <p class="muted">
+      <span data-fr>La base légale de ce traitement est l'exécution du contrat qui vous lie à Octocode lorsque vous utilisez l'Application (article 6.1.b RGPD).</span>
+      <span data-en>The legal basis for this processing is the performance of the contract between you and Octocode when you use the App (Article 6(1)(b) GDPR).</span>
+    </p>
+
+    <h2><span class="num">03.</span>
+      <span data-fr>Services tiers</span>
+      <span data-en>Third-Party Services</span>
+    </h2>
+    <p>
+      <span data-fr>Notre Application utilise des services tiers susceptibles de collecter des informations vous concernant. Les principaux services utilisés sont :</span>
+      <span data-en>Our App uses third-party services that may collect information used to identify you. The main services we use are:</span>
+    </p>
+    <ul>
+      <li>
+        <span data-fr><strong>Firebase</strong> (service Google) : authentification, base de données (Firestore), Cloud Functions, et App Check.</span>
+        <span data-en><strong>Firebase</strong> (a Google service): user authentication, database (Firestore), Cloud Functions, and App Check.</span>
+      </li>
+      <li>
+        <span data-fr><strong>Google Play Billing</strong> et <strong>Apple App Store</strong> : tous les achats intégrés et abonnements sont traités par les boutiques d'applications respectives.</span>
+        <span data-en><strong>Google Play Billing</strong> and <strong>Apple App Store</strong>: all in-app purchases and subscriptions are processed by the respective app stores.</span>
+      </li>
+      <li>
+        <span data-fr><strong>RevenueCat</strong> : gestion des abonnements et synchronisation entre plateformes.</span>
+        <span data-en><strong>RevenueCat</strong>: subscription management and cross-platform synchronization.</span>
+      </li>
+    </ul>
+
+    <h2><span class="num">04.</span>
+      <span data-fr>Conservation des données</span>
+      <span data-en>Data Retention</span>
+    </h2>
+    <p>
+      <span data-fr>Vos données sont conservées tant que votre compte est actif. Si vous supprimez votre compte, vos données personnelles sont effacées de nos serveurs dans un délai de 30 jours, à l'exception des données que nous sommes légalement tenus de conserver (par exemple, données de facturation pendant 10 ans).</span>
+      <span data-en>Your data is retained as long as your account is active. If you delete your account, your personal data is removed from our servers within 30 days, except for data we are legally required to retain (e.g., billing records for 10 years).</span>
+    </p>
+
+    <h2><span class="num">05.</span>
+      <span data-fr>Vos droits</span>
+      <span data-en>Your Rights</span>
+    </h2>
+    <p>
+      <span data-fr>Conformément au RGPD et à la loi Informatique et Libertés, vous disposez des droits suivants sur vos données personnelles :</span>
+      <span data-en>Under the GDPR and applicable data protection laws, you have the following rights regarding your personal data:</span>
+    </p>
+    <ul>
+      <li>
+        <span data-fr>Droit d'accès, de rectification et de suppression de vos données.</span>
+        <span data-en>Right to access, rectify, and delete your data.</span>
+      </li>
+      <li>
+        <span data-fr>Droit à la portabilité de vos données.</span>
+        <span data-en>Right to data portability.</span>
+      </li>
+      <li>
+        <span data-fr>Droit d'opposition au traitement et de limitation.</span>
+        <span data-en>Right to object to processing and right to restriction.</span>
+      </li>
+      <li>
+        <span data-fr>Droit de définir des directives relatives au sort de vos données après votre décès.</span>
+        <span data-en>Right to give instructions regarding what happens to your data after your death (under French law).</span>
+      </li>
+    </ul>
+    <p>
+      <span data-fr>Pour exercer ces droits, contactez-nous à <a href="mailto:matthieu@octocode-dev.com">matthieu@octocode-dev.com</a>. Vous pouvez également supprimer votre compte directement depuis les réglages de l'Application.</span>
+      <span data-en>To exercise these rights, contact us at <a href="mailto:matthieu@octocode-dev.com">matthieu@octocode-dev.com</a>. You can also delete your account directly from the App's settings.</span>
+    </p>
+    <p class="muted">
+      <span data-fr>Si vous estimez que le traitement de vos données ne respecte pas la réglementation, vous avez le droit d'introduire une réclamation auprès de la <a href="https://www.cnil.fr" target="_blank" rel="noopener">CNIL</a>.</span>
+      <span data-en>If you believe that the processing of your data does not comply with regulations, you have the right to lodge a complaint with the French data protection authority (<a href="https://www.cnil.fr" target="_blank" rel="noopener">CNIL</a>).</span>
+    </p>
+
+    <h2><span class="num">06.</span>
+      <span data-fr>Sécurité des données</span>
+      <span data-en>Data Security</span>
+    </h2>
+    <p>
+      <span data-fr>Nous mettons en œuvre des mesures raisonnables pour protéger vos informations contre la perte, le vol, l'usage abusif ou l'accès non autorisé. Toutefois, aucune transmission ou stockage électronique n'est sûr à 100 %.</span>
+      <span data-en>We take reasonable measures to help protect your information from loss, theft, misuse, and unauthorized access. However, no electronic transmission or storage is 100% secure.</span>
+    </p>
+
+    <h2><span class="num">07.</span>
+      <span data-fr>Modifications de cette politique</span>
+      <span data-en>Changes to This Privacy Policy</span>
+    </h2>
+    <p>
+      <span data-fr>Nous pouvons mettre à jour cette politique de confidentialité de temps à autre. Les modifications seront publiées sur cette page avec la date de mise à jour. Pour les changements significatifs, nous vous notifierons par email ou via l'Application.</span>
+      <span data-en>We may update this Privacy Policy from time to time. Changes will be posted on this page with the updated date. For significant changes, we will notify you by email or in-App.</span>
+    </p>
+
+    <h2><span class="num">08.</span>
+      <span data-fr>Nous contacter</span>
+      <span data-en>Contact Us</span>
+    </h2>
+    <p>
+      <span data-fr>Pour toute question concernant cette politique de confidentialité :</span>
+      <span data-en>For any questions about this Privacy Policy:</span>
+    </p>
+    <p>
+      Email: <a href="mailto:matthieu@octocode-dev.com">matthieu@octocode-dev.com</a>
+    </p>
+
+    <h2><span class="num">09.</span>
+      <span data-fr>Mentions légales</span>
+      <span data-en>Legal Information</span>
+    </h2>
+
+    <dl class="legal-card">
+      <dt>
+        <span data-fr>Dénomination</span>
+        <span data-en>Company name</span>
+      </dt>
+      <dd>Octocode</dd>
+
+      <dt>
+        <span data-fr>Forme juridique</span>
+        <span data-en>Legal form</span>
+      </dt>
+      <dd>
+        <span data-fr>SARL à associé unique</span>
+        <span data-en>Single-member SARL (limited liability company)</span>
+      </dd>
+
+      <dt>
+        <span data-fr>Capital social</span>
+        <span data-en>Share capital</span>
+      </dt>
+      <dd>1 000,00 €</dd>
+
+      <dt>
+        <span data-fr>Siège social</span>
+        <span data-en>Registered office</span>
+      </dt>
+      <dd>9 route de Quilly, 44130 Bouvron, France</dd>
+
+      <dt>
+        <span data-fr>Immatriculation</span>
+        <span data-en>Registration</span>
+      </dt>
+      <dd>RCS Saint-Nazaire 999 456 460</dd>
+
+      <dt>SIRET</dt>
+      <dd>99945646000016</dd>
+
+      <dt>
+        <span data-fr>TVA intracommunautaire</span>
+        <span data-en>EU VAT</span>
+      </dt>
+      <dd>FR64 999 456 460</dd>
+
+      <dt>
+        <span data-fr>Directeur de la publication</span>
+        <span data-en>Director of publication</span>
+      </dt>
+      <dd>Matthieu Achard</dd>
+
+      <dt>
+        <span data-fr>Hébergeur</span>
+        <span data-en>Host</span>
+      </dt>
+      <dd>GitHub, Inc. — 88 Colin P Kelly Jr St, San Francisco, CA 94107, USA</dd>
+    </dl>
+  </main>
+
+  <footer>
+    <div class="container">
+      © 2026 Octocode SARL ·
+      <a href="/">octocode-dev.com</a>
+    </div>
+  </footer>
+
+  <script>
+    (function () {
+      var langButtons = document.querySelectorAll('[data-set-lang]');
+      var root = document.documentElement;
+
+      function setLang(lang) {
+        root.setAttribute('data-lang', lang);
+        root.setAttribute('lang', lang);
+        langButtons.forEach(function (b) {
+          b.classList.toggle('active', b.getAttribute('data-set-lang') === lang);
+        });
+        try { localStorage.setItem('lang', lang); } catch (e) {}
+      }
+
+      langButtons.forEach(function (btn) {
+        btn.addEventListener('click', function () {
+          setLang(btn.getAttribute('data-set-lang'));
+        });
+      });
+
+      try {
+        var saved = localStorage.getItem('lang');
+        if (saved === 'fr' || saved === 'en') setLang(saved);
+      } catch (e) {}
+    })();
+  </script>
+</body>
+</html>
