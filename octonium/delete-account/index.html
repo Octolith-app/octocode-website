@@ -1,0 +1,497 @@
+<!DOCTYPE html>
+<html lang="fr" data-lang="fr">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Octonium — Account Deletion</title>
+  <meta name="description" content="How to request deletion of your Octonium account and associated data, published by Octocode SARL.">
+  <meta name="theme-color" content="#0a0a0a">
+  <meta name="robots" content="noindex">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,600&family=JetBrains+Mono:wght@400;500;600&family=Manrope:wght@300;400;500;600;700&display=swap"
+    rel="stylesheet">
+
+  <style>
+    :root {
+      --bg: #0a0a0a;
+      --surface: #141414;
+      --border: #242424;
+      --border-strong: #333;
+      --text: #e8e8e8;
+      --text-muted: #888;
+      --text-dim: #555;
+      --accent: #fbbf24;
+      --accent-glow: rgba(251, 191, 36, 0.15);
+      --display: 'Bricolage Grotesque', system-ui, sans-serif;
+      --body: 'Manrope', system-ui, sans-serif;
+      --mono: 'JetBrains Mono', ui-monospace, monospace;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: var(--body);
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.7;
+      -webkit-font-smoothing: antialiased;
+      min-height: 100vh;
+    }
+
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background-image:
+        radial-gradient(circle at 15% 25%, rgba(251, 191, 36, 0.04) 0%, transparent 35%),
+        radial-gradient(circle at 85% 75%, rgba(251, 191, 36, 0.025) 0%, transparent 45%);
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .container {
+      max-width: 820px;
+      margin: 0 auto;
+      padding: 0 1.6rem;
+      position: relative;
+      z-index: 1;
+    }
+
+    /* HEADER */
+    header {
+      position: sticky;
+      top: 0;
+      padding: 1.2rem 1.6rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      z-index: 100;
+      background: rgba(10, 10, 10, 0.78);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .header-inner {
+      max-width: 820px;
+      width: 100%;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .back-link {
+      font-family: var(--mono);
+      font-size: 0.82rem;
+      color: var(--text-muted);
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      transition: color 0.2s;
+    }
+
+    .back-link:hover {
+      color: var(--accent);
+    }
+
+    .lang-toggle {
+      font-family: var(--mono);
+      font-size: 0.78rem;
+      display: flex;
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      overflow: hidden;
+    }
+
+    .lang-toggle button {
+      background: transparent;
+      color: var(--text-muted);
+      border: none;
+      padding: 0.4rem 0.8rem;
+      cursor: pointer;
+      font-family: inherit;
+      font-size: inherit;
+      transition: all 0.2s;
+    }
+
+    .lang-toggle button.active {
+      background: var(--accent);
+      color: var(--bg);
+      font-weight: 700;
+    }
+
+    .lang-toggle button:hover:not(.active) {
+      color: var(--text);
+    }
+
+    /* CONTENT */
+    main {
+      padding: 4rem 0 6rem;
+    }
+
+    .doc-meta {
+      font-family: var(--mono);
+      font-size: 0.78rem;
+      color: var(--accent);
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      margin-bottom: 1.2rem;
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+    }
+
+    .doc-meta::before {
+      content: '/';
+      opacity: 0.5;
+    }
+
+    h1 {
+      font-family: var(--display);
+      font-weight: 500;
+      font-size: clamp(2.2rem, 5vw, 3.4rem);
+      letter-spacing: -0.035em;
+      line-height: 1.05;
+      margin-bottom: 1.5rem;
+    }
+
+    .last-updated {
+      font-family: var(--mono);
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      margin-bottom: 3rem;
+      padding-bottom: 2rem;
+      border-bottom: 1px solid var(--border);
+    }
+
+    h2 {
+      font-family: var(--display);
+      font-weight: 500;
+      font-size: clamp(1.4rem, 3vw, 1.8rem);
+      letter-spacing: -0.02em;
+      margin-top: 3rem;
+      margin-bottom: 1rem;
+      color: var(--text);
+    }
+
+    h2 .num {
+      font-family: var(--mono);
+      font-size: 0.8em;
+      font-weight: 400;
+      color: var(--accent);
+      margin-right: 0.5rem;
+    }
+
+    h3 {
+      font-family: var(--display);
+      font-weight: 600;
+      font-size: 1.1rem;
+      margin-top: 1.5rem;
+      margin-bottom: 0.6rem;
+      color: var(--text);
+    }
+
+    p {
+      margin-bottom: 1rem;
+      color: var(--text);
+      font-size: 1rem;
+    }
+
+    p.muted {
+      color: var(--text-muted);
+      font-size: 0.95rem;
+    }
+
+    ul {
+      margin: 0.8rem 0 1.5rem 1.5rem;
+      color: var(--text);
+    }
+
+    ul li {
+      margin-bottom: 0.5rem;
+      padding-left: 0.4rem;
+    }
+
+    ul li::marker {
+      color: var(--accent);
+    }
+
+    a {
+      color: var(--accent);
+      text-decoration: none;
+      border-bottom: 1px solid transparent;
+      transition: border-color 0.2s;
+    }
+
+    a:hover {
+      border-bottom-color: var(--accent);
+    }
+
+    code {
+      font-family: var(--mono);
+      font-size: 0.88em;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      padding: 0.1rem 0.4rem;
+      border-radius: 4px;
+      color: var(--text);
+    }
+
+    .legal-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 1.8rem;
+      margin: 1.5rem 0;
+      font-family: var(--mono);
+      font-size: 0.88rem;
+      line-height: 1.9;
+    }
+
+    .legal-card dt {
+      color: var(--text-dim);
+      font-size: 0.7rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      margin-top: 1rem;
+    }
+
+    .legal-card dt:first-child {
+      margin-top: 0;
+    }
+
+    .legal-card dd {
+      color: var(--text);
+    }
+
+    /* FOOTER */
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 2rem 0 2.5rem;
+      font-family: var(--mono);
+      font-size: 0.78rem;
+      color: var(--text-muted);
+      text-align: center;
+    }
+
+    footer a {
+      color: var(--text-muted);
+      border-bottom: 1px dotted var(--text-dim);
+    }
+
+    footer a:hover {
+      color: var(--accent);
+      border-bottom-color: var(--accent);
+    }
+
+    /* LANG SWITCHING */
+    [data-lang="en"] [data-fr],
+    [data-lang="fr"] [data-en] {
+      display: none;
+    }
+
+    /* RESPONSIVE */
+    @media (max-width: 640px) {
+      header {
+        padding: 1rem 1.2rem;
+      }
+
+      .container {
+        padding: 0 1.2rem;
+      }
+
+      main {
+        padding: 2.5rem 0 4rem;
+      }
+
+      h1 {
+        margin-bottom: 1rem;
+      }
+
+      h2 {
+        margin-top: 2.4rem;
+      }
+
+      .legal-card {
+        padding: 1.3rem;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <div class="header-inner">
+      <a href="/" class="back-link">
+        ← <span data-fr>octocode</span><span data-en>octocode</span>
+      </a>
+      <div class="lang-toggle">
+        <button data-set-lang="fr" class="active">FR</button>
+        <button data-set-lang="en">EN</button>
+      </div>
+    </div>
+  </header>
+
+  <main class="container">
+    <div class="doc-meta">
+      <span data-fr>Document légal</span>
+      <span data-en>Legal document</span>
+    </div>
+
+    <h1>
+      <span data-fr>Suppression de compte — Octonium</span>
+      <span data-en>Account Deletion — Octonium</span>
+    </h1>
+
+    <p class="last-updated">
+      <span data-fr>Dernière mise à jour : 19 juin 2026</span>
+      <span data-en>Last updated: June 19, 2026</span>
+    </p>
+
+    <p class="muted">
+      <span data-fr>Cette page explique comment demander la suppression de votre compte
+        <strong>Octonium</strong> (Warhammer 40 000) et des données associées, conformément aux exigences de
+        Google Play. Octonium est édité par <strong>Octocode</strong>.</span>
+      <span data-en>This page explains how to request the deletion of your <strong>Octonium</strong>
+        (Warhammer 40,000) account and its associated data, in accordance with Google Play requirements.
+        Octonium is published by <strong>Octocode</strong>.</span>
+    </p>
+
+    <h2><span class="num">01.</span>
+      <span data-fr>Responsable du traitement</span>
+      <span data-en>Data Controller</span>
+    </h2>
+    <p>
+      <span data-fr>L'application <strong>Octonium</strong> est éditée par :</span>
+      <span data-en>The <strong>Octonium</strong> app is published by:</span>
+    </p>
+    <ul>
+      <li><span data-fr>Octocode SARL</span><span data-en>Octocode SARL</span></li>
+      <li><span data-fr>SIRET : 99945646000016</span><span data-en>SIRET: 99945646000016</span></li>
+      <li><span data-fr>9 route de Quilly, 44130 Bouvron, France</span><span data-en>9 route de Quilly, 44130 Bouvron, France</span></li>
+      <li><span data-fr>Email : <a href="mailto:0cto@octocode-dev.com">0cto@octocode-dev.com</a></span><span data-en>Email: <a href="mailto:0cto@octocode-dev.com">0cto@octocode-dev.com</a></span></li>
+    </ul>
+
+    <h2><span class="num">02.</span>
+      <span data-fr>Comment demander la suppression</span>
+      <span data-en>How to Request Deletion</span>
+    </h2>
+    <p>
+      <span data-fr>Pour demander la suppression de votre compte et de vos données, envoyez un email à
+        <a href="mailto:0cto@octocode-dev.com">0cto@octocode-dev.com</a> depuis l'adresse email
+        associée à votre compte Octonium, avec pour objet « Suppression de compte ».</span>
+      <span data-en>To request the deletion of your account and your data, send an email to
+        <a href="mailto:0cto@octocode-dev.com">0cto@octocode-dev.com</a> from the email address
+        associated with your Octonium account, with the subject "Account deletion".</span>
+    </p>
+    <p class="muted">
+      <span data-fr>Cette vérification par email nous permet de confirmer que la demande émane bien du
+        titulaire du compte.</span>
+      <span data-en>This email verification lets us confirm the request comes from the account holder.</span>
+    </p>
+
+    <h2><span class="num">03.</span>
+      <span data-fr>Délai de traitement</span>
+      <span data-en>Processing Time</span>
+    </h2>
+    <p>
+      <span data-fr>Votre demande est traitée dans un délai maximum de <strong>30 jours</strong> à compter
+        de sa réception. Une confirmation vous est envoyée par email une fois la suppression effectuée.</span>
+      <span data-en>Your request is processed within a maximum of <strong>30 days</strong> of receipt.
+        A confirmation email is sent to you once the deletion is complete.</span>
+    </p>
+
+    <h2><span class="num">04.</span>
+      <span data-fr>Données supprimées</span>
+      <span data-en>Data That Is Deleted</span>
+    </h2>
+    <p>
+      <span data-fr>La suppression de votre compte entraîne l'effacement définitif des données suivantes :</span>
+      <span data-en>Deleting your account permanently erases the following data:</span>
+    </p>
+    <ul>
+      <li>
+        <span data-fr>Votre compte d'authentification (Firebase Authentication) : email et identifiants.</span>
+        <span data-en>Your authentication account (Firebase Authentication): email and credentials.</span>
+      </li>
+      <li>
+        <span data-fr>Votre document utilisateur Firestore <code>users/{uid}</code> : pseudonyme,
+          préférences et jeton d'achat <code>lastPurchaseToken</code>.</span>
+        <span data-en>Your Firestore user document <code>users/{uid}</code>: username, preferences and
+          the <code>lastPurchaseToken</code> purchase token.</span>
+      </li>
+      <li>
+        <span data-fr>Le contenu que vous avez créé : listes d'armée, parties et statistiques de jeu.</span>
+        <span data-en>The content you created: army lists, games and gameplay statistics.</span>
+      </li>
+    </ul>
+    <p class="muted">
+      <span data-fr>Certaines données peuvent être conservées temporairement si la loi l'exige (par ex.
+        justificatifs de facturation liés à vos achats), puis supprimées à l'expiration du délai légal
+        de conservation.</span>
+      <span data-en>Some data may be retained temporarily where required by law (e.g. billing records
+        for your purchases), then deleted once the legal retention period expires.</span>
+    </p>
+
+    <h2><span class="num">05.</span>
+      <span data-fr>Contact</span>
+      <span data-en>Contact</span>
+    </h2>
+    <p>
+      <span data-fr>Pour toute question relative à la suppression de votre compte ou à vos données,
+        contactez-nous à <a href="mailto:0cto@octocode-dev.com">0cto@octocode-dev.com</a>.</span>
+      <span data-en>For any question about deleting your account or your data, contact us at
+        <a href="mailto:0cto@octocode-dev.com">0cto@octocode-dev.com</a>.</span>
+    </p>
+  </main>
+
+  <footer>
+    <div class="container">
+      © 2026 Octocode SARL ·
+      <a href="/">octocode-dev.com</a>
+    </div>
+  </footer>
+
+  <script>
+    (function () {
+      var langButtons = document.querySelectorAll('[data-set-lang]');
+      var root = document.documentElement;
+
+      function setLang(lang) {
+        root.setAttribute('data-lang', lang);
+        root.setAttribute('lang', lang);
+        langButtons.forEach(function (b) {
+          b.classList.toggle('active', b.getAttribute('data-set-lang') === lang);
+        });
+        try { localStorage.setItem('lang', lang); } catch (e) { }
+      }
+
+      langButtons.forEach(function (btn) {
+        btn.addEventListener('click', function () {
+          setLang(btn.getAttribute('data-set-lang'));
+        });
+      });
+
+      try {
+        var saved = localStorage.getItem('lang');
+        if (saved === 'fr' || saved === 'en') setLang(saved);
+      } catch (e) { }
+    })();
+  </script>
+</body>
+
+</html>
