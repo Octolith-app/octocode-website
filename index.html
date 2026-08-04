@@ -4,10 +4,36 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Octocode — Studio de développement logiciel</title>
+  <title>Octocode — Studio de développement logiciel &amp; apps mobiles</title>
   <meta name="description"
-    content="Octocode SARL — Studio indépendant de développement de logiciels, sites web et applications mobiles. Bouvron, France.">
+    content="Octocode SARL — Studio indépendant de développement de logiciels, sites web et applications mobiles. Éditeur des apps Octolith (Age of Sigmar) et Octonium (Warhammer 40,000). Bouvron, France.">
+  <meta name="keywords"
+    content="Octocode, développement logiciel, application mobile, Flutter, Firebase, Octolith, Octonium, Warhammer, Age of Sigmar, Warhammer 40000, studio, Bouvron, Loire-Atlantique">
+  <meta name="author" content="Octocode SARL">
   <meta name="theme-color" content="#0a0a0a">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://octocode-dev.com/">
+
+  <!-- Bilingual single URL (FR default, EN via in-page toggle) -->
+  <link rel="alternate" hreflang="fr" href="https://octocode-dev.com/">
+  <link rel="alternate" hreflang="en" href="https://octocode-dev.com/">
+  <link rel="alternate" hreflang="x-default" href="https://octocode-dev.com/">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Octocode">
+  <meta property="og:title" content="Octocode — Studio de développement logiciel &amp; apps mobiles">
+  <meta property="og:description"
+    content="Studio indépendant de développement de logiciels, sites web et applications mobiles. Éditeur des apps Octolith &amp; Octonium.">
+  <meta property="og:url" content="https://octocode-dev.com/">
+  <meta property="og:locale" content="fr_FR">
+  <meta property="og:locale:alternate" content="en_US">
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Octocode — Studio de développement logiciel &amp; apps mobiles">
+  <meta name="twitter:description"
+    content="Studio indépendant de développement de logiciels, sites web et applications mobiles. Éditeur des apps Octolith &amp; Octonium.">
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -420,6 +446,128 @@
       border-color: var(--accent);
     }
 
+    /* STORE BADGES */
+    .store-badges {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.6rem;
+      margin-top: 1.1rem;
+    }
+
+    .store-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.65rem;
+      padding: 0.55rem 1rem;
+      border: 1px solid var(--border-strong);
+      border-radius: 8px;
+      background: var(--surface);
+      color: var(--text);
+      text-decoration: none;
+      transition: all 0.22s ease;
+    }
+
+    .store-badge:hover {
+      border-color: var(--accent);
+      transform: translateY(-2px);
+      background: var(--surface-2);
+    }
+
+    .store-badge svg {
+      width: 20px;
+      height: 20px;
+      flex-shrink: 0;
+    }
+
+    .store-badge .st-txt {
+      display: flex;
+      flex-direction: column;
+      line-height: 1.15;
+    }
+
+    .store-badge .st-txt span {
+      font-family: var(--mono);
+      font-size: 0.58rem;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+
+    .store-badge .st-txt b {
+      font-family: var(--display);
+      font-weight: 600;
+      font-size: 0.95rem;
+    }
+
+    .store-badge.reco {
+      border-color: var(--accent);
+      box-shadow: 0 0 0 1px var(--accent-glow);
+    }
+
+    .store-badge.soon {
+      opacity: 0.45;
+      pointer-events: none;
+    }
+
+    /* APP SHOWCASE */
+    .showcase {
+      border-top: 1px solid var(--border);
+    }
+
+    .showcase-apps {
+      display: flex;
+      flex-direction: column;
+      gap: 3.5rem;
+    }
+
+    .app-block h3 {
+      font-family: var(--display);
+      font-weight: 600;
+      font-size: 1.55rem;
+      letter-spacing: -0.02em;
+      margin-bottom: 0.4rem;
+    }
+
+    .app-block>p {
+      color: var(--text-muted);
+      max-width: 640px;
+      margin-bottom: 1.4rem;
+      font-size: 0.95rem;
+    }
+
+    .shots {
+      display: flex;
+      gap: 1rem;
+      overflow-x: auto;
+      padding-bottom: 0.8rem;
+      scroll-snap-type: x mandatory;
+    }
+
+    .phone {
+      flex: 0 0 auto;
+      width: 190px;
+      scroll-snap-align: start;
+      border: 1px solid var(--border);
+      border-radius: 22px;
+      overflow: hidden;
+      background: var(--surface-2);
+      aspect-ratio: 9 / 19.5;
+    }
+
+    .phone img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .shots-empty {
+      color: var(--text-dim);
+      font-family: var(--mono);
+      font-size: 0.78rem;
+      padding: 1.2rem 0;
+    }
+
     /* CONTACT */
     .contact-grid {
       display: grid;
@@ -581,6 +729,61 @@
       display: none;
     }
   </style>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Organization",
+        "@id": "https://octocode-dev.com/#org",
+        "name": "Octocode SARL",
+        "alternateName": "Octocode",
+        "url": "https://octocode-dev.com/",
+        "email": "0cto@octocode-dev.com",
+        "foundingDate": "2026",
+        "founder": { "@type": "Person", "name": "Matthieu Achard" },
+        "vatID": "FR64999456460",
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "9 route de Quilly",
+          "postalCode": "44130",
+          "addressLocality": "Bouvron",
+          "addressRegion": "Loire-Atlantique",
+          "addressCountry": "FR"
+        }
+      },
+      {
+        "@type": "WebSite",
+        "@id": "https://octocode-dev.com/#website",
+        "url": "https://octocode-dev.com/",
+        "name": "Octocode",
+        "inLanguage": ["fr", "en"],
+        "publisher": { "@id": "https://octocode-dev.com/#org" }
+      },
+      {
+        "@type": "MobileApplication",
+        "name": "Octolith",
+        "applicationCategory": "GameApplication",
+        "operatingSystem": "Android, iOS",
+        "description": "Application mobile compagnon pour les joueurs de Warhammer Age of Sigmar : listes d'armée, règles, parties et collection.",
+        "installUrl": "https://play.google.com/store/apps/details?id=com.octo.octolith",
+        "publisher": { "@id": "https://octocode-dev.com/#org" },
+        "offers": { "@type": "Offer", "price": "0", "priceCurrency": "EUR" }
+      },
+      {
+        "@type": "MobileApplication",
+        "name": "Octonium",
+        "applicationCategory": "GameApplication",
+        "operatingSystem": "Android, iOS",
+        "description": "Application mobile compagnon pour les joueurs de Warhammer 40,000 : listes d'armée, datasheets, règles, parties et collection.",
+        "installUrl": "https://play.google.com/store/apps/details?id=com.octo.octonium",
+        "publisher": { "@id": "https://octocode-dev.com/#org" },
+        "offers": { "@type": "Offer", "price": "0", "priceCurrency": "EUR" }
+      }
+    ]
+  }
+  </script>
 </head>
 
 <body>
@@ -699,8 +902,8 @@
             </p>
           </div>
           <div class="project-status live">
-            <span data-fr>En cours</span>
-            <span data-en>In progress</span>
+            <span data-fr>Disponible</span>
+            <span data-en>Available</span>
           </div>
         </div>
 
@@ -715,8 +918,8 @@
             </p>
           </div>
           <div class="project-status live">
-            <span data-fr>En cours</span>
-            <span data-en>In progress</span>
+            <span data-fr>Disponible</span>
+            <span data-en>Available</span>
           </div>
         </div>
 
@@ -732,6 +935,73 @@
           <div class="project-status">
             <span data-fr>Bientôt</span>
             <span data-en>Soon</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="apps" class="showcase">
+      <div class="section-label">
+        <span data-fr>Les apps</span>
+        <span data-en>The apps</span>
+      </div>
+      <h2 class="section-title">
+        <span data-fr>Télécharge nos apps de jeu.</span>
+        <span data-en>Get our gaming apps.</span>
+      </h2>
+
+      <div class="showcase-apps">
+        <div class="app-block">
+          <h3>Octolith</h3>
+          <p>
+            <span data-fr>Le compagnon Warhammer Age of Sigmar : construis tes armées, cherche chaque règle,
+              suis ta collection et joue tes parties du premier tour à la victoire — hors ligne.</span>
+            <span data-en>The Warhammer Age of Sigmar companion: build your armies, look up every rule, track your
+              collection and run your games from first turn to victory — offline.</span>
+          </p>
+          <div class="shots" data-shots="octolith">
+            <div class="phone"><img loading="lazy" alt="Octolith — capture 1" src="assets/screens/octolith-1.png" onerror="this.closest('.phone').remove()"></div>
+            <div class="phone"><img loading="lazy" alt="Octolith — capture 2" src="assets/screens/octolith-2.png" onerror="this.closest('.phone').remove()"></div>
+            <div class="phone"><img loading="lazy" alt="Octolith — capture 3" src="assets/screens/octolith-3.png" onerror="this.closest('.phone').remove()"></div>
+            <div class="phone"><img loading="lazy" alt="Octolith — capture 4" src="assets/screens/octolith-4.png" onerror="this.closest('.phone').remove()"></div>
+          </div>
+          <div class="store-badges">
+            <a class="store-badge" data-store="octolith" data-platform="play"
+              href="https://play.google.com/store/apps/details?id=com.octo.octolith" target="_blank" rel="noopener">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M3 3.5v17c0 .55.62.9 1.09.61l13.5-8.5a.72.72 0 0 0 0-1.22L4.09 2.89A.72.72 0 0 0 3 3.5z"/></svg>
+              <span class="st-txt"><span><span data-fr>Disponible sur</span><span data-en>Get it on</span></span><b>Google Play</b></span>
+            </a>
+            <a class="store-badge" data-store="octolith" data-platform="appstore" href="#" target="_blank" rel="noopener">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.05 20.28c-.98.95-2.05.8-3.08.35-1.09-.46-2.09-.48-3.24 0-1.44.62-2.2.44-3.06-.35C2.79 15.25 3.51 7.59 9.05 7.31c1.35.07 2.29.74 3.08.8 1.18-.24 2.31-.93 3.57-.84 1.51.12 2.65.72 3.4 1.8-3.12 1.87-2.38 5.98.48 7.13-.57 1.5-1.31 2.99-2.54 4.09zM12.03 7.25c-.15-2.23 1.66-4.07 3.74-4.25.29 2.58-2.34 4.5-3.74 4.25z"/></svg>
+              <span class="st-txt"><span><span data-fr>Télécharger sur</span><span data-en>Download on the</span></span><b>App Store</b></span>
+            </a>
+          </div>
+        </div>
+
+        <div class="app-block">
+          <h3>Octonium</h3>
+          <p>
+            <span data-fr>Le compagnon Warhammer 40,000 : listes d'armée, datasheets, stratagèmes, collection et suivi de
+              partie complet — tout en un, hors ligne.</span>
+            <span data-en>The Warhammer 40,000 companion: army lists, datasheets, stratagems, collection and full game
+              tracking — all in one, offline.</span>
+          </p>
+          <div class="shots" data-shots="octonium">
+            <div class="phone"><img loading="lazy" alt="Octonium — capture 1" src="assets/screens/octonium-1.png" onerror="this.closest('.phone').remove()"></div>
+            <div class="phone"><img loading="lazy" alt="Octonium — capture 2" src="assets/screens/octonium-2.png" onerror="this.closest('.phone').remove()"></div>
+            <div class="phone"><img loading="lazy" alt="Octonium — capture 3" src="assets/screens/octonium-3.png" onerror="this.closest('.phone').remove()"></div>
+            <div class="phone"><img loading="lazy" alt="Octonium — capture 4" src="assets/screens/octonium-4.png" onerror="this.closest('.phone').remove()"></div>
+          </div>
+          <div class="store-badges">
+            <a class="store-badge" data-store="octonium" data-platform="play"
+              href="https://play.google.com/store/apps/details?id=com.octo.octonium" target="_blank" rel="noopener">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M3 3.5v17c0 .55.62.9 1.09.61l13.5-8.5a.72.72 0 0 0 0-1.22L4.09 2.89A.72.72 0 0 0 3 3.5z"/></svg>
+              <span class="st-txt"><span><span data-fr>Disponible sur</span><span data-en>Get it on</span></span><b>Google Play</b></span>
+            </a>
+            <a class="store-badge" data-store="octonium" data-platform="appstore" href="#" target="_blank" rel="noopener">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.05 20.28c-.98.95-2.05.8-3.08.35-1.09-.46-2.09-.48-3.24 0-1.44.62-2.2.44-3.06-.35C2.79 15.25 3.51 7.59 9.05 7.31c1.35.07 2.29.74 3.08.8 1.18-.24 2.31-.93 3.57-.84 1.51.12 2.65.72 3.4 1.8-3.12 1.87-2.38 5.98.48 7.13-.57 1.5-1.31 2.99-2.54 4.09zM12.03 7.25c-.15-2.23 1.66-4.07 3.74-4.25.29 2.58-2.34 4.5-3.74 4.25z"/></svg>
+              <span class="st-txt"><span><span data-fr>Télécharger sur</span><span data-en>Download on the</span></span><b>App Store</b></span>
+            </a>
           </div>
         </div>
       </div>
@@ -839,6 +1109,34 @@
         var saved = localStorage.getItem('lang');
         if (saved === 'fr' || saved === 'en') setLang(saved);
       } catch (e) { }
+    })();
+
+    // ─── App Store links + OS-aware "recommended" badge ───────────────────
+    // Both apps are live on the App Store — paste the exact URLs below and the
+    // App Store badges light up. Until then they stay dimmed (Google Play works
+    // straight away, its links are already set in the markup).
+    (function () {
+      var STORES = {
+        octolith: { appstore: '' }, // ← colle ici l'URL App Store d'Octolith
+        octonium: { appstore: '' }  // ← colle ici l'URL App Store d'Octonium
+      };
+      var isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent) ||
+        (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1);
+      var isAndroid = /Android/.test(navigator.userAgent);
+
+      document.querySelectorAll('.store-badge[data-platform="appstore"]').forEach(function (a) {
+        var app = a.getAttribute('data-store');
+        var url = (STORES[app] || {}).appstore;
+        if (url) { a.setAttribute('href', url); }
+        else { a.classList.add('soon'); a.setAttribute('href', '#'); }
+      });
+
+      var reco = isIOS ? 'appstore' : isAndroid ? 'play' : null;
+      if (reco) {
+        document.querySelectorAll('.store-badge[data-platform="' + reco + '"]').forEach(function (a) {
+          if (!a.classList.contains('soon')) a.classList.add('reco');
+        });
+      }
     })();
   </script>
 </body>
