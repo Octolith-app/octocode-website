@@ -543,6 +543,12 @@
       scroll-snap-type: x mandatory;
     }
 
+    /* When no screenshots are present yet, every .phone is removed on image
+       error → the row becomes empty → hide it so no gap shows. */
+    .shots:empty {
+      display: none;
+    }
+
     .phone {
       flex: 0 0 auto;
       width: 190px;
@@ -775,7 +781,7 @@
         "@type": "MobileApplication",
         "name": "Octonium",
         "applicationCategory": "GameApplication",
-        "operatingSystem": "Android, iOS",
+        "operatingSystem": "Android",
         "description": "Application mobile compagnon pour les joueurs de Warhammer 40,000 : listes d'armée, datasheets, règles, parties et collection.",
         "installUrl": "https://play.google.com/store/apps/details?id=com.octo.octonium",
         "publisher": { "@id": "https://octocode-dev.com/#org" },
@@ -1117,8 +1123,8 @@
     // straight away, its links are already set in the markup).
     (function () {
       var STORES = {
-        octolith: { appstore: '' }, // ← colle ici l'URL App Store d'Octolith
-        octonium: { appstore: '' }  // ← colle ici l'URL App Store d'Octonium
+        octolith: { appstore: 'https://apps.apple.com/fr/app/octolith/id6766886743' },
+        octonium: { appstore: '' } // pas encore publié sur l'App Store
       };
       var isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent) ||
         (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1);
