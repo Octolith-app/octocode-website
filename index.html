@@ -457,6 +457,10 @@
       gap: 0.7em;
     }
 
+    .app-block {
+      scroll-margin-top: 100px;
+    }
+
     .app-icon {
       width: 1.6em;
       height: 1.6em;
@@ -931,10 +935,10 @@
               <span data-en>Mobile companion app for fantasy miniatures game players. Army lists, rules, battles.</span>
             </p>
           </div>
-          <div class="project-status live">
+          <a class="project-status live" data-store-link="octolith" href="#app-octolith">
             <span data-fr>Disponible</span>
             <span data-en>Available</span>
-          </div>
+          </a>
         </div>
 
         <div class="project">
@@ -947,16 +951,16 @@
               <span data-en>Mobile companion app for sci-fi miniatures game players. Army lists, datasheets, battles.</span>
             </p>
           </div>
-          <div class="project-status live">
+          <a class="project-status live" data-store-link="octonium" href="#app-octonium">
             <span data-fr>Disponible</span>
             <span data-en>Available</span>
-          </div>
+          </a>
         </div>
 
         <div class="project">
           <div class="project-num">→ 03</div>
           <div class="project-info">
-            <h3>Octopost</h3>
+            <h3 class="app-title"><img class="app-icon" src="assets/icons/octopost.png" alt="" width="256" height="256">Octopost</h3>
             <p>
               <span data-fr>Outil Windows pour les vendeurs de cartes sur Cardmarket. Étiquettes, préparation des commandes,
                 prix.</span>
@@ -972,7 +976,7 @@
         <div class="project">
           <div class="project-num">→ 04</div>
           <div class="project-info">
-            <h3>OctoQuizz</h3>
+            <h3 class="app-title"><img class="app-icon" src="assets/icons/octoquizz.svg" alt="" width="256" height="256">OctoQuizz</h3>
             <p>
               <span data-fr>Jeu de quiz web. À paraître.</span>
               <span data-en>Web quiz game. Coming soon.</span>
@@ -997,7 +1001,7 @@
       </h2>
 
       <div class="showcase-apps">
-        <div class="app-block">
+        <div class="app-block" id="app-octolith">
           <h3 class="app-title"><img class="app-icon" src="assets/icons/octolith.png" alt="" width="256" height="256">Octolith</h3>
           <p>
             <span data-fr>Le compagnon de ton jeu de figurines fantastique : construis tes armées, cherche chaque règle,
@@ -1024,7 +1028,7 @@
           </div>
         </div>
 
-        <div class="app-block">
+        <div class="app-block" id="app-octonium">
           <h3 class="app-title"><img class="app-icon" src="assets/icons/octonium.png" alt="" width="256" height="256">Octonium</h3>
           <p>
             <span data-fr>Le compagnon de ton jeu de figurines de science-fiction : listes d'armée, datasheets, stratagèmes, collection et suivi de
@@ -1188,6 +1192,19 @@
         var url = (STORES[app] || {}).appstore;
         if (url) { a.setAttribute('href', url); }
         else { a.classList.add('soon'); a.setAttribute('href', '#'); }
+      });
+
+      // "Available" in the products list: straight to this phone's store; on a
+      // computer, down to the app's block, where both store badges are.
+      document.querySelectorAll('[data-store-link]').forEach(function (a) {
+        var app = a.getAttribute('data-store-link');
+        var badge = document.querySelector('.store-badge[data-store="' + app + '"][data-platform="' +
+          (isIOS ? 'appstore' : 'play') + '"]');
+        if ((isIOS || isAndroid) && badge && !badge.classList.contains('soon')) {
+          a.setAttribute('href', badge.getAttribute('href'));
+          a.setAttribute('target', '_blank');
+          a.setAttribute('rel', 'noopener');
+        }
       });
 
       var reco = isIOS ? 'appstore' : isAndroid ? 'play' : null;
