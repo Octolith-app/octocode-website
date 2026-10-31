@@ -450,6 +450,21 @@
       text-decoration: none;
     }
 
+    /* APP ICONS — the stores' own icon, rounded as a phone shows it */
+    .app-title {
+      display: flex;
+      align-items: center;
+      gap: 0.7em;
+    }
+
+    .app-icon {
+      width: 1.6em;
+      height: 1.6em;
+      flex: none;
+      border-radius: 22%;
+      box-shadow: 0 4px 18px rgba(0, 0, 0, 0.45);
+    }
+
     a.project-status:hover {
       background: var(--accent);
       color: var(--bg);
@@ -909,7 +924,7 @@
         <div class="project">
           <div class="project-num">→ 01</div>
           <div class="project-info">
-            <h3>Octolith</h3>
+            <h3 class="app-title"><img class="app-icon" src="assets/icons/octolith.png" alt="" width="256" height="256">Octolith</h3>
             <p>
               <span data-fr>Application mobile compagnon pour les joueurs de jeux de figurines fantastiques. Listes d'armée,
                 règles, parties.</span>
@@ -925,7 +940,7 @@
         <div class="project">
           <div class="project-num">→ 02</div>
           <div class="project-info">
-            <h3>Octonium</h3>
+            <h3 class="app-title"><img class="app-icon" src="assets/icons/octonium.png" alt="" width="256" height="256">Octonium</h3>
             <p>
               <span data-fr>Application mobile compagnon pour les joueurs de jeux de figurines de science-fiction. Listes d'armée,
                 datasheets, parties.</span>
@@ -983,7 +998,7 @@
 
       <div class="showcase-apps">
         <div class="app-block">
-          <h3>Octolith</h3>
+          <h3 class="app-title"><img class="app-icon" src="assets/icons/octolith.png" alt="" width="256" height="256">Octolith</h3>
           <p>
             <span data-fr>Le compagnon de ton jeu de figurines fantastique : construis tes armées, cherche chaque règle,
               suis ta collection et joue tes parties du premier tour à la victoire — hors ligne.</span>
@@ -1010,7 +1025,7 @@
         </div>
 
         <div class="app-block">
-          <h3>Octonium</h3>
+          <h3 class="app-title"><img class="app-icon" src="assets/icons/octonium.png" alt="" width="256" height="256">Octonium</h3>
           <p>
             <span data-fr>Le compagnon de ton jeu de figurines de science-fiction : listes d'armée, datasheets, stratagèmes, collection et suivi de
               partie complet — tout en un, hors ligne.</span>
