@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex, nofollow">
+  <title>L'Atelier : version de test</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700&family=Manrope:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+    :root { --bg:#0a0a0a; --fg:#f2f0ea; --muted:#a8a49a; --line:#26241f; --accent:#fbbf24; }
+    * { box-sizing: border-box; }
+    body { margin:0; background:var(--bg); color:var(--fg); font:16px/1.6 Manrope, system-ui, sans-serif; }
+    main { max-width: 760px; margin: 0 auto; padding: 48px max(20px, env(safe-area-inset-left)) 64px; }
+    h1 { font-family:"Bricolage Grotesque", sans-serif; font-size: clamp(34px, 6vw, 52px); line-height:1.05; margin:0 0 8px; }
+    .tag { color:var(--accent); font-weight:600; letter-spacing:.06em; text-transform:uppercase; font-size:13px; margin:0 0 18px; }
+    p { margin: 0 0 14px; color: var(--muted); }
+    img { width:100%; height:auto; border-radius:12px; border:1px solid var(--line); margin: 18px 0 26px; image-rendering: pixelated; }
+    .dl { display:inline-flex; align-items:center; gap:10px; background:var(--accent); color:#0a0a0a; font-weight:700; text-decoration:none; padding:14px 22px; border-radius:10px; font-size:17px; }
+    .dl:focus-visible { outline: 3px solid #fff; outline-offset: 3px; }
+    .meta { font-size: 14px; margin-top: 10px; }
+    h2 { font-family:"Bricolage Grotesque", sans-serif; font-size: 22px; margin: 36px 0 10px; color: var(--fg); }
+    ol { margin: 0; padding-left: 22px; color: var(--muted); }
+    li { margin-bottom: 8px; }
+    b { color: var(--fg); font-weight: 600; }
+  </style>
+</head>
+<body>
+<main>
+  <p class="tag">Version de test · privée</p>
+  <h1>L'Atelier</h1>
+  <p>Un auto-battler : ton armée récolte, grandit et affronte les boss pendant que tu achètes des améliorations et recrutes des capitaines.</p>
+  <img src="apercu.jpg" alt="Une partie de L'Atelier : le village au centre de la plaine, des troupes et des monstres.">
+  <a class="dl" href="https://github.com/Octolith-app/octocode-website/releases/download/atelier-2026-11-17/Atelier.exe">Télécharger pour Windows</a>
+  <p class="meta">Atelier.exe · environ 127 Mo · Windows 64 bits · pas d'installation</p>
+
+  <h2>Pour lancer le jeu</h2>
+  <ol>
+    <li>Double-clique sur <b>Atelier.exe</b>.</li>
+    <li>Si Windows affiche « Windows a protégé votre ordinateur », clique sur <b>Informations complémentaires</b>, puis <b>Exécuter quand même</b>. Le jeu n'est pas signé, c'est normal pour une version de test.</li>
+    <li>Ta partie est sauvegardée automatiquement sur ton PC.</li>
+  </ol>
+</main>
+</body>
+</html>
